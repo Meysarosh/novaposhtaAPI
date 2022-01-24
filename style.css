@@ -25,7 +25,8 @@ body {
     url(../img/img11.jpg);
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  /* clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); */
+  transition: all 1s;
 }
 .header__logo-box {
   position: absolute;
@@ -106,8 +107,7 @@ body {
   }
 }
 
-.btn:link,
-.btn:visited {
+.btn {
   text-transform: uppercase;
   text-decoration: none;
   font-size: 1.5rem;
@@ -152,4 +152,15 @@ body {
 .btn--animated {
   animation: moveInBottom 1s ease-out 0.75s;
   animation-fill-mode: backwards;
+}
+.main {
+  height: 100vh;
+  width: 100%;
+  background-color: royalblue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s 0.4s;
 }
