@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,19 +12,121 @@
     <title>Luggage store</title>
   </head>
   <body>
-    <div class="header">
-      <div class="header__logo-box">
-        <img class="header__logo" src="img/logo.png" alt="Logo" />
-      </div>
-      <div class="header__text-box">
-        <h1 class="heading-primary">
-          <span class="heading-primary--main">Reliable luggage</span>
-          <span class="heading-primary--sub">for reliable travels</span>
+    <div class="container">
+      <header class="header">
+        <img src="img/logorb.png" alt="logo" class="logo" />
+        <h1 class="header__text">
+          Reliable luggage<br />
+          for reliable travel
         </h1>
-        <button class="btn btn--white btn--animated">Shop now</button>
-        <!-- <a href="#" class="btn btn--white btn--animated">Shop now</a> -->
+        <div class="search">
+          <button class="circle__btn">
+            <svg class="header__icon">
+              <use xlink:href="img/symbol.svg#icon-magnifying-glass"></use>
+            </svg>
+          </button>
+        </div>
+
+        <button class="circle__btn">
+          <svg class="header__icon">
+            <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
+          </svg>
+        </button>
+
+        <button class="circle__btn">
+          <svg class="header__icon">
+            <use xlink:href="img/symbol.svg#icon-menu"></use>
+          </svg>
+        </button>
+      </header>
+      <div class="content">
+        <div class="filter">
+          <button class="filter__btn">
+            <svg class="filter__icon">
+              <use xlink:href="img/symbol.svg#icon-sound-mix"></use>
+            </svg>
+            <span class="filter__title">Filter</span>
+          </button>
+        </div>
+        <button class="back-to-top__btn">
+          <svg class="back-to-top__icon">
+            <use xlink:href="img/symbol.svg#icon-arrow-with-circle-up"></use>
+          </svg>
+        </button>
+
+        <div class="shop">
+          <div class="shop__article shop__tov">
+            <img
+              src="img/gabol/122122azul.jpg"
+              alt="front-view"
+              class="shop__article-img shop__tov"
+            />
+            <div class="shop__article-title shop__tov">
+              Cabin Luggage MIDORI
+            </div>
+            <div class="shop__article-data shop__tov">37x55x21 cm</div>
+            <div class="shop__article-price shop__tov">$94.9</div>
+          </div>
+
+          <div class="shop__article">
+            <img
+              src="img/gabol/122122azul.jpg"
+              alt="front-view"
+              class="shop__article-img"
+            />
+            <div class="shop__article-title">Cabin Luggage MIDORI</div>
+            <div class="shop__article-data">37x55x21 cm</div>
+            <div class="shop__article-price">$94.9</div>
+          </div>
+
+          <div class="shop__article">
+            <img
+              src="img/gabol/122122azul.jpg"
+              alt="front-view"
+              class="shop__article-img"
+            />
+            <div class="shop__article-title">Cabin Luggage MIDORI</div>
+            <div class="shop__article-data">37x55x21 cm</div>
+            <div class="shop__article-price">$94.9</div>
+          </div>
+
+          <div class="shop__article">
+            <img
+              src="img/gabol/122122azul.jpg"
+              alt="front-view"
+              class="shop__article-img"
+            />
+            <div class="shop__article-title">Cabin Luggage MIDORI</div>
+            <div class="shop__article-data">37x55x21 cm</div>
+            <div class="shop__article-price">$94.9</div>
+          </div>
+
+          <div class="shop__article">
+            <img
+              src="img/gabol/122122azul.jpg"
+              alt="front-view"
+              class="shop__article-img"
+            />
+            <div class="shop__article-title">Cabin Luggage MIDORI</div>
+            <div class="shop__article-data">37x55x21 cm</div>
+            <div class="shop__article-price">$94.9</div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer__info">
+          <svg class="footer__icon">
+            <use xlink:href="img/symbol.svg#icon-phone"></use>
+          </svg>
+          <span class="footer__text">+380956792252</span>
+        </div>
+      </footer>
+
+      <div class="popup">
+        <div class="popup__window">
+          <button class="popup__close">&times;</button>
+        </div>
       </div>
     </div>
-    <div class="main"></div>
   </body>
 </html>

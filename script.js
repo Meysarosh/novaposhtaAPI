@@ -1,14 +1,20 @@
-// function capitalize(word) {
-//     return word[0].toUpperCase() + word.substring(1).toLowerCase();
-// }
-const header = document.querySelector(".header");
-const main = document.querySelector(".main");
+const popup = document.querySelector(".popup");
+const popupWindow = document.querySelector(".popup__window");
+const shop = document.querySelector(".shop");
 
-header.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (!e.target.classList.contains("btn")) return;
-  header.style.opacity = "0";
-  header.style.visibility = "hidden";
-  main.style.visibility = "visible";
-  main.style.opacity = "1";
+shop.addEventListener("click", function (el) {
+  el.preventDefault;
+  if (!el.target.classList.contains("shop__tov")) return;
+  // popup.style.display = "block";
+  popup.style.visibility = "visible";
+  popup.style.opacity = "1";
+  popupWindow.style.transform = "translate(-50%, -50%) scale(1)";
+});
+popup.addEventListener("click", function (el) {
+  el.preventDefault();
+  if (!el.target.classList.contains("popup__close")) return;
+  // popup.style.display = "none";
+  popup.style.opacity = "0";
+  popup.style.visibility = "hidden";
+  popupWindow.style.transform = "translate(-50%, -50%) scale(0.5)";
 });

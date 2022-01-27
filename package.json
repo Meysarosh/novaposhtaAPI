@@ -1,0 +1,23 @@
+{
+  "name": "novaposhtaapi",
+  "version": "1.0.0",
+  "description": "Use of NovaPoshta's api (delivery company) in a online shop",
+  "main": "script.js",
+  "scripts": {
+    "wsass": "node-sass scss/import.scss style.css -w",
+    "server": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meysarosh/novaposhtaAPI.git"
+  },
+  "author": "Meysarosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meysarosh/novaposhtaAPI/issues"
+  },
+  "homepage": "https://github.com/Meysarosh/novaposhtaAPI#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
