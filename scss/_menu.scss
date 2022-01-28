@@ -24,6 +24,7 @@
       height: 2.5rem;
       width: 2.5rem;
       fill: white;
+      transition: all 0.2s;
       &:active {
         fill: blue;
       }
@@ -34,7 +35,7 @@
     font-family: inherit;
     text-transform: uppercase;
     font-size: 2.75rem;
-    font-weight: 900;
+    font-weight: 400;
     color: white;
     background-color: transparent;
     border: none;
@@ -42,6 +43,7 @@
     &:not(:last-child) {
       border-bottom: 1px solid var(--cgl4);
     }
+    transition: all 0.2s;
     &:active {
       color: blue;
     }

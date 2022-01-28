@@ -111,19 +111,19 @@ body {
       color: red; }
 
 .footer {
-  background-color: var(--rbd); }
+  background-color: var(--rbl); }
   .footer__info {
     padding: 1.5rem;
     display: flex;
     justify-content: center; }
   .footer__icon {
-    width: 5rem;
-    height: 5rem;
-    fill: var(--rbl); }
+    width: 3rem;
+    height: 3rem;
+    fill: white; }
   .footer__text {
     font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--rbl); }
+    font-weight: 400;
+    color: white; }
 
 .article {
   padding: 1rem;
@@ -303,6 +303,7 @@ body {
     background-color: white; }
 
 .back-to-top__icon {
+  transform: translateY(0.2rem);
   width: 3.5rem;
   height: 3.5rem;
   fill: var(--rb); }
@@ -335,7 +336,6 @@ body {
       color: red; }
   .popup__window {
     width: 90vw;
-    height: 90vh;
     background-color: white;
     z-index: 101;
     position: absolute;
@@ -410,18 +410,20 @@ body {
     .menu__close-btn {
       height: 2.5rem;
       width: 2.5rem;
-      fill: white; }
+      fill: white;
+      transition: all 0.2s; }
       .menu__close-btn:active {
         fill: blue; }
   .menu__btn {
     font-family: inherit;
     text-transform: uppercase;
     font-size: 2.75rem;
-    font-weight: 900;
+    font-weight: 400;
     color: white;
     background-color: transparent;
     border: none;
-    padding-bottom: 2rem; }
+    padding-bottom: 2rem;
+    transition: all 0.2s; }
     .menu__btn:not(:last-child) {
       border-bottom: 1px solid var(--cgl4); }
     .menu__btn:active {

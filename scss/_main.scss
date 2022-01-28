@@ -138,21 +138,21 @@ body {
 }
 
 .footer {
-  background-color: var(--rbd);
+  background-color: var(--rbl);
   &__info {
     padding: 1.5rem;
     display: flex;
     justify-content: center;
   }
   &__icon {
-    width: 5rem;
-    height: 5rem;
-    fill: var(--rbl);
+    width: 3rem;
+    height: 3rem;
+    fill: white;
   }
   &__text {
     font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--rbl);
+    font-weight: 400;
+    color: white;
   }
 }
 // flex-direction: column;
