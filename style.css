@@ -256,11 +256,17 @@ body {
       border: 1px solid #ac0404;
       border-radius: 2rem;
       padding: 0.5rem 1rem;
+      color: #ac0404;
       display: flex;
       align-items: center; }
+      .cart__btns--clear:active {
+        background-color: #ac0404;
+        color: white; }
+      .cart__btns--clear:active .cart__btns--clear__icon {
+        fill: white; }
       .cart__btns--clear__text {
         margin-left: 1rem;
-        color: #ac0404;
+        color: inherit;
         font-weight: 700; }
       .cart__btns--clear__icon {
         width: 2.5rem;
@@ -269,13 +275,19 @@ body {
     .cart__btns--order {
       background-color: transparent;
       border: 1px solid green;
+      color: green;
       border-radius: 2rem;
       padding: 0.5rem 1rem;
       display: flex;
       align-items: center; }
+      .cart__btns--order:active {
+        background-color: green;
+        color: white; }
+      .cart__btns--order:active .cart__btns--order__icon {
+        fill: white; }
       .cart__btns--order__text {
         margin-left: 1rem;
-        color: green;
+        color: inherit;
         font-weight: 700; }
       .cart__btns--order__icon {
         width: 2.5rem;
