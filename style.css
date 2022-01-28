@@ -198,6 +198,89 @@ body {
         height: 3.5rem;
         fill: #ac0404; }
 
+.itemsincart {
+  position: absolute;
+  transform: translate(1.75rem, -1.1rem);
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 50%;
+  background-color: red; }
+  .itemsincart__num {
+    color: white;
+    font-weight: bold; }
+
+.cart {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; }
+  .cart__message {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--cgl3); }
+  .cart__item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--cgl3);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    .cart__item__img {
+      width: 10rem;
+      height: 10rem; }
+    .cart__item__info {
+      width: 7rem;
+      height: 7rem; }
+    .cart__item__price {
+      color: red; }
+    .cart__item__quantity-btns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 2rem;
+      border: none;
+      background-color: transparent; }
+      .cart__item__quantity-btns:active {
+        color: red; }
+  .cart__total {
+    display: inline;
+    border-top: 1px solid var(--cgl3);
+    align-self: flex-end;
+    margin-top: 5rem;
+    padding: 2rem; }
+  .cart__btns {
+    display: flex; }
+    .cart__btns--clear {
+      margin-right: auto;
+      background-color: transparent;
+      border: 1px solid #ac0404;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center; }
+      .cart__btns--clear__text {
+        margin-left: 1rem;
+        color: #ac0404;
+        font-weight: 700; }
+      .cart__btns--clear__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: #ac0404; }
+    .cart__btns--order {
+      background-color: transparent;
+      border: 1px solid green;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center; }
+      .cart__btns--order__text {
+        margin-left: 1rem;
+        color: green;
+        font-weight: 700; }
+      .cart__btns--order__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: green; }
+
 .circle__btn {
   width: 4rem;
   height: 4rem;

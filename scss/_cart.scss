@@ -1,0 +1,106 @@
+.itemsincart {
+  position: absolute;
+  transform: translate(1.75rem, -1.1rem);
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 50%;
+  background-color: red;
+
+  &__num {
+    color: white;
+    font-weight: bold;
+  }
+}
+.cart {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  &__message {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--cgl3);
+  }
+  &__item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--cgl3);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    &__img {
+      width: 10rem;
+      height: 10rem;
+    }
+    &__info {
+      width: 7rem;
+      height: 7rem;
+    }
+    &__price {
+      color: red;
+    }
+    // &__quantity {
+    // }
+    &__quantity-btns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 2rem;
+      border: none;
+      background-color: transparent;
+      &:active {
+        color: red;
+      }
+    }
+  }
+  &__total {
+    display: inline;
+    border-top: 1px solid var(--cgl3);
+    align-self: flex-end;
+    margin-top: 5rem;
+    padding: 2rem;
+  }
+  &__btns {
+    display: flex;
+
+    &--clear {
+      margin-right: auto;
+      background-color: transparent;
+      border: 1px solid rgb(172, 4, 4);
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+
+      display: flex;
+      align-items: center;
+      &__text {
+        margin-left: 1rem;
+        color: rgb(172, 4, 4);
+        font-weight: 700;
+      }
+      &__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: rgb(172, 4, 4);
+      }
+    }
+    &--order {
+      background-color: transparent;
+      border: 1px solid green;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+
+      display: flex;
+      align-items: center;
+      &__text {
+        margin-left: 1rem;
+        color: green;
+        font-weight: 700;
+      }
+      &__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: green;
+      }
+    }
+  }
+}
