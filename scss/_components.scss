@@ -44,10 +44,10 @@
     font-size: 3rem;
     font-weight: 400;
     border: none;
-    background-color: white;
+    background-color: transparent;
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 0.5rem;
+    right: 1rem;
     color: black;
     transition: all 0.2s;
     cursor: pointer;
@@ -68,8 +68,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
     border-radius: 0.3rem;
-    display: table;
-    overflow: hidden;
+    overflow: scroll;
     transition: transform 0.5s;
   }
 }

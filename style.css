@@ -124,6 +124,80 @@ body {
     font-weight: 900;
     color: var(--rbl); }
 
+.article {
+  padding: 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .article__title {
+    margin-top: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    word-spacing: 0.2rem; }
+  .article__icon {
+    width: 3.5rem;
+    height: 3.5rem; }
+  .article__slider {
+    position: relative; }
+    .article__slider-img {
+      width: 100%; }
+    .article__slider-button {
+      border: none;
+      background-color: transparent; }
+      .article__slider-button--left {
+        position: absolute;
+        top: 50%;
+        left: 2%; }
+      .article__slider-button--right {
+        position: absolute;
+        top: 50%;
+        right: 2%; }
+  .article__dots {
+    display: flex; }
+    .article__dots__dot {
+      border: none;
+      background-color: #b9b9b9;
+      opacity: 0.7;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      margin-right: 1.75rem;
+      cursor: pointer;
+      transition: all 0.5s;
+      /* Only necessary when overlying images */
+      /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */ }
+    .article__dots__dot:last-child {
+      margin: 0; }
+    .article__dots--active {
+      /* background-color: #fff; */
+      background-color: #ac0404;
+      opacity: 1; }
+  .article__order-box {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .article__order-box__price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--rbd); }
+    .article__order-box__btn {
+      background-color: transparent;
+      border: 1px solid #ac0404;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center; }
+      .article__order-box__btn__text {
+        color: #ac0404;
+        font-weight: 700; }
+      .article__order-box__btn__icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        fill: #ac0404; }
+
 .circle__btn {
   width: 4rem;
   height: 4rem;
@@ -165,10 +239,10 @@ body {
     font-size: 3rem;
     font-weight: 400;
     border: none;
-    background-color: white;
+    background-color: transparent;
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 0.5rem;
+    right: 1rem;
     color: black;
     transition: all 0.2s;
     cursor: pointer; }
@@ -185,6 +259,5 @@ body {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
     border-radius: 0.3rem;
-    display: table;
-    overflow: hidden;
+    overflow: scroll;
     transition: transform 0.5s; }
