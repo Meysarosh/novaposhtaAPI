@@ -13,35 +13,50 @@
   </head>
   <body>
     <div class="container">
-      <header class="header">
-        <img src="img/logorb.png" alt="logo" class="logo" />
-        <h1 class="header__text">
-          Reliable luggage<br />
-          for reliable travel
-        </h1>
-        <div class="search">
+      <header>
+        <div class="header">
+          <img src="img/logorb.png" alt="logo" class="logo" />
+          <h1 class="header__text">
+            Reliable luggage<br />
+            for reliable travel
+          </h1>
+          <div class="search">
+            <button class="circle__btn">
+              <svg class="header__icon">
+                <use xlink:href="img/symbol.svg#icon-magnifying-glass"></use>
+              </svg>
+            </button>
+          </div>
+
+          <button class="circle__btn">
+            <div class="itemsincart">
+              <span class="itemsincart__num">1</span>
+            </div>
+            <svg class="header__icon">
+              <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
+            </svg>
+          </button>
+
           <button class="circle__btn">
             <svg class="header__icon">
-              <use xlink:href="img/symbol.svg#icon-magnifying-glass"></use>
+              <use xlink:href="img/symbol.svg#icon-menu"></use>
             </svg>
           </button>
         </div>
 
-        <button class="circle__btn">
-          <div class="itemsincart">
-            <span class="itemsincart__num">1</span>
-          </div>
-          <svg class="header__icon">
-            <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
-          </svg>
-        </button>
-
-        <button class="circle__btn">
-          <svg class="header__icon">
-            <use xlink:href="img/symbol.svg#icon-menu"></use>
-          </svg>
-        </button>
+        <div class="menu">
+          <button class="menu__close">
+            <svg class="menu__close-btn">
+              <use xlink:href="img/symbol.svg#icon-cross"></use>
+            </svg>
+          </button>
+          <button class="menu__btn">cart</button>
+          <button class="menu__btn">check delivery date</button>
+          <button class="menu__btn">contacts</button>
+          <button class="menu__btn">payment and shipping</button>
+        </div>
       </header>
+
       <div class="search-box">
         <input
           type="text"
@@ -54,6 +69,7 @@
           </svg>
         </button>
       </div>
+
       <div class="content">
         <div class="filter">
           <button class="filter__btn">

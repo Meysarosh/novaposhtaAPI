@@ -1,0 +1,49 @@
+.menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 60vh;
+  background-color: var(--rbl);
+  border-radius: 3rem;
+  box-shadow: 2rem 4rem 8rem white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background-color: transparent;
+
+    &-btn {
+      height: 2.5rem;
+      width: 2.5rem;
+      fill: white;
+      &:active {
+        fill: blue;
+      }
+    }
+  }
+
+  &__btn {
+    font-family: inherit;
+    text-transform: uppercase;
+    font-size: 2.75rem;
+    font-weight: 900;
+    color: white;
+    background-color: transparent;
+    border: none;
+    padding-bottom: 2rem;
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--cgl4);
+    }
+    &:active {
+      color: blue;
+    }
+  }
+}
