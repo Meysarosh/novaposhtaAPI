@@ -55,47 +55,6 @@ body {
 .logo {
   height: 5rem; }
 
-.search-box {
-  visibility: visible;
-  height: 5rem;
-  transition: all 0.2s;
-  border-top: 1px solid var(--cgl4);
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  .search-box__input {
-    font-family: inherit;
-    font-size: 2rem;
-    color: inherit;
-    background-color: var(--cgl2);
-    border: none;
-    padding: 0.7rem 2rem;
-    border-radius: 10rem;
-    width: 50%;
-    transition: all 0.2s;
-    margin-right: -3.5rem; }
-    .search-box__input:focus {
-      outline: none;
-      width: 75%;
-      background-color: var(--cgl3); }
-    .search-box__input::-webkit-input-placeholder {
-      font-weight: 400;
-      color: var(--cgl4); }
-  .search-box__input:focus + .search-box__btn {
-    background-color: var(--cgl3); }
-  .search-box__btn {
-    border: none;
-    background-color: var(--cgl2); }
-    .search-box__btn:focus {
-      outline: none; }
-    .search-box__btn:active {
-      transform: translateY(0.2rem); }
-  .search-box__icon {
-    height: 2.5rem;
-    width: 2.5rem;
-    fill: var(--rbd); }
-
 .content {
   padding: 1rem;
   width: 100vw;
