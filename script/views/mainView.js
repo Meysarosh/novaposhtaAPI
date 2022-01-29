@@ -11,12 +11,20 @@ class MainView {
     this.parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
+  clickArticle(control) {
+    this.parentElement.addEventListener("click", function (el) {
+      if (!el.target.closest(".shop__article")) return;
+      control(el.target.closest(".shop__article").dataset.id);
+    });
+  }
+
   generateShop() {
     return this.data.map(this.generateArticle).join("");
   }
+
   generateArticle(article) {
     return `
-          <div class="shop__article">
+          <div class="shop__article" data-id="${article.id}">
             <img
               src="${article.img[0]}"
               alt="front-view"

@@ -1,4 +1,4 @@
-export const article = [
+export const articles = [
   {
     id: "122122",
     color: "azul",
