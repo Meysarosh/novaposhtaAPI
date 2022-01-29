@@ -3,6 +3,7 @@ import MainView from "./views/mainView.js";
 import ArticleView from "./views/articleView.js";
 import PopupView from "./views/popupView.js";
 import popupView from "./views/popupView.js";
+import SearchBoxView from "./views/SearchBoxView.js";
 
 const showShop = function () {
   MainView.render(data.articles);
@@ -15,5 +16,16 @@ const openArticle = function (id) {
   ArticleView.generateSlide();
 };
 
+const searchControl = function (text) {
+  let searchResult = data.articles.filter((el) =>
+    el.name.toLowerCase().includes(text.toLowerCase())
+  );
+  if (searchResult.length == 0) return;
+  MainView.render(searchResult);
+};
+
 showShop();
 MainView.clickArticle(openArticle);
+
+SearchBoxView.searchBoxCall();
+SearchBoxView.searchFor(searchControl);

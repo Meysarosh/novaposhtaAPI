@@ -98,7 +98,7 @@ class ArticleView {
         
       </div>
       <div class="article__order-box">
-        <div class="article__order-box__price">$${this.data.price}</div>
+        <div class="article__order-box__price">Price: $${this.data.price}</div>
         <button class="article__order-box__btn">
           <svg class="article__order-box__btn__icon">
             <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
@@ -107,7 +107,7 @@ class ArticleView {
         </button>
       </div>
       <div class="article__details">
-        <p class="article__details__text">${this.data.size}</p>
+        <p class="article__details__text">Size: ${this.data.size}</p>
         <p class="article__details__text">
         ${this.data.details}
         </p>

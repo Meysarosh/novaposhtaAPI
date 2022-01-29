@@ -1,8 +1,8 @@
 .search-box {
-  visibility: visible;
-  height: 5rem;
+  visibility: hidden;
+  height: 0;
 
-  transition: all 0.2s;
+  transition: all 0.4s;
 
   border-top: 1px solid var(--cgl4);
   background-color: white;

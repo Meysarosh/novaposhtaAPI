@@ -144,9 +144,13 @@ body {
     height: 50vh;
     position: relative;
     overflow: hidden; }
+    .article__slider-container {
+      height: 100%;
+      max-width: 35rem; }
     .article__slider-img {
       position: absolute;
       max-height: 47vh;
+      max-width: 35rem;
       transition: all 0.5s; }
     .article__slider-button {
       border: none;
@@ -195,15 +199,24 @@ body {
       border: 1px solid var(--dr);
       border-radius: 2rem;
       padding: 0.5rem 1rem;
+      color: var(--dr);
       display: flex;
       align-items: center; }
+      .article__order-box__btn:active {
+        color: white;
+        background-color: var(--dr); }
+      .article__order-box__btn:active .article__order-box__btn__icon {
+        fill: white; }
       .article__order-box__btn__text {
-        color: var(--dr);
+        color: inherit;
         font-weight: 700; }
       .article__order-box__btn__icon {
         width: 3.5rem;
         height: 3.5rem;
         fill: var(--dr); }
+  .article__details__text {
+    font-size: 1.6rem;
+    font-weight: 400; }
 
 .itemsincart {
   position: absolute;
@@ -366,9 +379,9 @@ body {
     transition: transform 0.5s; }
 
 .search-box {
-  visibility: visible;
-  height: 5rem;
-  transition: all 0.2s;
+  visibility: hidden;
+  height: 0;
+  transition: all 0.4s;
   border-top: 1px solid var(--cgl4);
   background-color: white;
   display: flex;
