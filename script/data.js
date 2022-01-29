@@ -53,13 +53,13 @@ export const article = [
     capacity: 47,
     weight: 2.7,
     details:
-      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - beige",
+      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - coral",
     type: "hard",
   },
   {
     id: "113419",
     color: "blue",
-    name: "Pilot Case 15,6 ZAMBIA",
+    name: "Pilot Case 15,6 Zambia",
     price: 100.9,
     img: [`img/gabol/113419.jpg`],
     size: "44x41x20 cm",
@@ -72,7 +72,7 @@ export const article = [
   {
     id: "119946016",
     color: "grey",
-    name: "Medium Suitcase VASILI",
+    name: "Medium Suitcase Vasili",
     price: 80.9,
     img: [
       `img/gabol/119946016-0.jpg`,
@@ -84,13 +84,13 @@ export const article = [
     capacity: 75,
     weight: 3.8,
     details:
-      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - blue",
+      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - grey",
     type: "hard",
   },
   {
     id: "113446",
     color: "Burgundy",
-    name: "Medium Suitcase ZAMBIA",
+    name: "Medium Suitcase Zambia",
     price: 114.9,
     img: [
       `img/gabol/113446026-0.jpg`,
@@ -104,13 +104,13 @@ export const article = [
     capacity: 60,
     weight: 3.2,
     details:
-      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - blue",
+      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - Burgundy",
     type: "soft",
   },
   {
     id: "122046",
     color: "Black",
-    name: "Medium Suitcase KIBA",
+    name: "Medium Suitcase Kiba",
     price: 134.9,
     img: [
       `img/gabol/122046negro-0.jpg`,
@@ -124,13 +124,13 @@ export const article = [
     capacity: 79,
     weight: 3.5,
     details:
-      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - blue",
+      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - black",
     type: "hard",
   },
   {
     id: "226646",
     color: "multy-color",
-    name: "Medium Suitcase CHERRY",
+    name: "Medium Suitcase Cherry",
     price: 73.6,
     img: [
       `img/gabol/226646099-0.jpg`,
@@ -144,13 +144,13 @@ export const article = [
     capacity: 55,
     weight: 3.4,
     details:
-      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - blue",
+      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - multy-color",
     type: "hard",
   },
   {
     id: "121947",
     color: "blue",
-    name: "Large Suitcase SENDAI",
+    name: "Large Suitcase Sendai",
     price: 169.9,
     img: [
       `img/gabol/121947003-0.jpg`,
@@ -170,7 +170,7 @@ export const article = [
   {
     id: "119647",
     color: "Coral",
-    name: "Large Suitcase ORLEANS",
+    name: "Large Suitcase Orleans",
     price: 109.9,
     img: [
       `img/gabol/119647coral-0.jpg`,
@@ -184,7 +184,7 @@ export const article = [
     capacity: 115,
     weight: 4.3,
     details:
-      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - blue",
+      "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - Coral",
     type: "hard",
   },
 ];

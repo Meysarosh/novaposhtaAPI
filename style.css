@@ -105,6 +105,8 @@ body {
     align-items: center; }
     .shop__article-img {
       width: 100%; }
+    .shop__article-title {
+      text-align: center; }
     .shop__article-price {
       color: red; }
 
