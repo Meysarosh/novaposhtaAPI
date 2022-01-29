@@ -21,10 +21,14 @@
     height: 50vh;
     position: relative;
     overflow: hidden;
-
+    &-container {
+      height: 100%;
+      max-width: 35rem;
+    }
     &-img {
       position: absolute;
       max-height: 47vh;
+      max-width: 35rem;
       transition: all 0.5s;
     }
     &-button {
@@ -93,11 +97,21 @@
       border: 1px solid var(--dr);
       border-radius: 2rem;
       padding: 0.5rem 1rem;
+      color: var(--dr);
 
       display: flex;
       align-items: center;
+
+      &:active {
+        color: white;
+        background-color: var(--dr);
+      }
+      &:active &__icon {
+        fill: white;
+      }
+
       &__text {
-        color: var(--dr);
+        color: inherit;
         font-weight: 700;
       }
       &__icon {
@@ -105,6 +119,12 @@
         height: 3.5rem;
         fill: var(--dr);
       }
+    }
+  }
+  &__details {
+    &__text {
+      font-size: 1.6rem;
+      font-weight: 400;
     }
   }
 }
