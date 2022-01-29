@@ -60,7 +60,7 @@
     }
     &--active {
       /* background-color: #fff; */
-      background-color: rgb(172, 4, 4);
+      background-color: var(--dr);
       opacity: 1;
     }
   }
@@ -79,20 +79,20 @@
     }
     &__btn {
       background-color: transparent;
-      border: 1px solid rgb(172, 4, 4);
+      border: 1px solid var(--dr);
       border-radius: 2rem;
       padding: 0.5rem 1rem;
 
       display: flex;
       align-items: center;
       &__text {
-        color: rgb(172, 4, 4);
+        color: var(--dr);
         font-weight: 700;
       }
       &__icon {
         width: 3.5rem;
         height: 3.5rem;
-        fill: rgb(172, 4, 4);
+        fill: var(--dr);
       }
     }
   }

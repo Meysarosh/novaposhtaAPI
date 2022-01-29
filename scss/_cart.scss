@@ -49,7 +49,7 @@
       border: none;
       background-color: transparent;
       &:active {
-        color: red;
+        color: var(--dr);
       }
     }
   }
@@ -66,12 +66,12 @@
     &--clear {
       margin-right: auto;
       background-color: transparent;
-      border: 1px solid rgb(172, 4, 4);
+      border: 1px solid var(--dr);
       border-radius: 2rem;
       padding: 0.5rem 1rem;
-      color: rgb(172, 4, 4);
+      color: var(--dr);
       &:active {
-        background-color: rgb(172, 4, 4);
+        background-color: var(--dr);
         color: white;
       }
       &:active &__icon {
@@ -88,7 +88,7 @@
       &__icon {
         width: 2.5rem;
         height: 2.5rem;
-        fill: rgb(172, 4, 4);
+        fill: var(--dr);
       }
     }
     &--order {

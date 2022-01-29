@@ -2,16 +2,14 @@
   --rb: royalblue;
   --rbd: rgb(4, 58, 220);
   --rbl: rgb(92, 124, 218);
+  --dr: rgb(172, 4, 4);
   --cgl1: #faf9f9;
   --cgl2: #f4f2f2;
   --cgl3: #f0eeee;
   --cgl4: #ccc;
   --cgd1: #333;
   --cgd2: #777;
-  --cgd3: #999;
-  --shadowd: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  --shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
-  --line: 1px solid var(--cgl2); }
+  --cgd3: #999; }
 
 *,
 *::after,
@@ -172,7 +170,7 @@ body {
       margin: 0; }
     .article__dots--active {
       /* background-color: #fff; */
-      background-color: #ac0404;
+      background-color: var(--dr);
       opacity: 1; }
   .article__order-box {
     width: 100%;
@@ -186,18 +184,18 @@ body {
       color: var(--rbd); }
     .article__order-box__btn {
       background-color: transparent;
-      border: 1px solid #ac0404;
+      border: 1px solid var(--dr);
       border-radius: 2rem;
       padding: 0.5rem 1rem;
       display: flex;
       align-items: center; }
       .article__order-box__btn__text {
-        color: #ac0404;
+        color: var(--dr);
         font-weight: 700; }
       .article__order-box__btn__icon {
         width: 3.5rem;
         height: 3.5rem;
-        fill: #ac0404; }
+        fill: var(--dr); }
 
 .itemsincart {
   position: absolute;
@@ -241,7 +239,7 @@ body {
       border: none;
       background-color: transparent; }
       .cart__item__quantity-btns:active {
-        color: red; }
+        color: var(--dr); }
   .cart__total {
     display: inline;
     border-top: 1px solid var(--cgl3);
@@ -253,14 +251,14 @@ body {
     .cart__btns--clear {
       margin-right: auto;
       background-color: transparent;
-      border: 1px solid #ac0404;
+      border: 1px solid var(--dr);
       border-radius: 2rem;
       padding: 0.5rem 1rem;
-      color: #ac0404;
+      color: var(--dr);
       display: flex;
       align-items: center; }
       .cart__btns--clear:active {
-        background-color: #ac0404;
+        background-color: var(--dr);
         color: white; }
       .cart__btns--clear:active .cart__btns--clear__icon {
         fill: white; }
@@ -271,7 +269,7 @@ body {
       .cart__btns--clear__icon {
         width: 2.5rem;
         height: 2.5rem;
-        fill: #ac0404; }
+        fill: var(--dr); }
     .cart__btns--order {
       background-color: transparent;
       border: 1px solid green;
@@ -345,7 +343,7 @@ body {
     cursor: pointer; }
     .popup__close:hover, .popup__close:active {
       font-weight: 700;
-      color: red; }
+      color: var(--dr); }
   .popup__window {
     width: 90vw;
     background-color: white;
