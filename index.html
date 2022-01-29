@@ -8,7 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
+    <script defer type="module" src="script/control.js"></script>
     <title>Luggage store</title>
   </head>
   <body>
@@ -44,7 +44,7 @@
           </button>
         </div>
 
-        <div class="menu">
+        <!-- <div class="menu">
           <button class="menu__close">
             <svg class="menu__close-btn">
               <use xlink:href="img/symbol.svg#icon-cross"></use>
@@ -54,7 +54,7 @@
           <button class="menu__btn">check delivery date</button>
           <button class="menu__btn">contacts</button>
           <button class="menu__btn">payment and shipping</button>
-        </div>
+        </div> -->
       </header>
 
       <div class="search-box">
@@ -79,6 +79,7 @@
             <span class="filter__title">Filter</span>
           </button>
         </div>
+
         <button class="back-to-top__btn">
           <svg class="back-to-top__icon">
             <use xlink:href="img/symbol.svg#icon-arrow-with-circle-up"></use>
@@ -86,20 +87,8 @@
         </button>
 
         <div class="shop">
-          <div class="shop__article shop__tov">
-            <img
-              src="img/gabol/122122azul.jpg"
-              alt="front-view"
-              class="shop__article-img shop__tov"
-            />
-            <div class="shop__article-title shop__tov">
-              Cabin Luggage MIDORI
-            </div>
-            <div class="shop__article-data shop__tov">37x55x21 cm</div>
-            <div class="shop__article-price shop__tov">$99.9</div>
-          </div>
-
-          <div class="shop__article">
+          <!--ARTICLE VIEW  IN SHOP
+            <div class="shop__article">
             <img
               src="img/gabol/122122azul.jpg"
               alt="front-view"
@@ -108,40 +97,7 @@
             <div class="shop__article-title">Cabin Luggage MIDORI</div>
             <div class="shop__article-data">37x55x21 cm</div>
             <div class="shop__article-price">$94.9</div>
-          </div>
-
-          <div class="shop__article">
-            <img
-              src="img/gabol/122122azul.jpg"
-              alt="front-view"
-              class="shop__article-img"
-            />
-            <div class="shop__article-title">Cabin Luggage MIDORI</div>
-            <div class="shop__article-data">37x55x21 cm</div>
-            <div class="shop__article-price">$94.9</div>
-          </div>
-
-          <div class="shop__article">
-            <img
-              src="img/gabol/122122azul.jpg"
-              alt="front-view"
-              class="shop__article-img"
-            />
-            <div class="shop__article-title">Cabin Luggage MIDORI</div>
-            <div class="shop__article-data">37x55x21 cm</div>
-            <div class="shop__article-price">$94.9</div>
-          </div>
-
-          <div class="shop__article">
-            <img
-              src="img/gabol/122122azul.jpg"
-              alt="front-view"
-              class="shop__article-img"
-            />
-            <div class="shop__article-title">Cabin Luggage MIDORI</div>
-            <div class="shop__article-data">37x55x21 cm</div>
-            <div class="shop__article-price">$94.9</div>
-          </div>
+          </div> -->
         </div>
       </div>
       <footer class="footer">
@@ -157,7 +113,8 @@
         <div class="popup__window">
           <button class="popup__close">&times;</button>
 
-          <div class="cart">
+          <!-- CART VIEW
+            <div class="cart">
             <div class="cart__message">Items in your cart:</div>
             <div class="cart__item">
               <img
@@ -189,7 +146,7 @@
                 <span class="cart__btns--order__text">ORDER</span>
               </button>
             </div>
-          </div>
+          </div> -->
 
           <!-- ARTICLE VIEW
             <div class="article">
