@@ -118,7 +118,6 @@ export const articles = [
       `img/gabol/122046negro-2.jpg`,
       `img/gabol/122046negro-3.jpg`,
       `img/gabol/122046negro-4.jpg`,
-      `img/gabol/122046negro-5.jpg`,
     ],
     size: "41x69x26 cm",
     capacity: 79,

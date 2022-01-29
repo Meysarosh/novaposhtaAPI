@@ -12,6 +12,7 @@ const openArticle = function (id) {
   let [curArticle] = data.articles.filter((article) => article.id == id);
   ArticleView.render(curArticle);
   popupView.popupCall();
+  ArticleView.generateSlide();
 };
 
 showShop();
