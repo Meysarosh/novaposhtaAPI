@@ -4,9 +4,18 @@ import articleView from "./views/articleView.js";
 import popupView from "./views/popupView.js";
 import searchBoxView from "./views/searchBoxView.js";
 import cartView from "./views/cartView.js";
+const setLocalStorage = function (name, data) {
+  localStorage.setItem(name, JSON.stringify(data));
+};
+const getLocalStorage = function () {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  if (!cart) return;
+  data.state.cart = cart;
+};
 
 const showShop = function () {
   mainView.render(data.articles);
+  getLocalStorage();
   checkCart();
 };
 
@@ -43,6 +52,7 @@ const clearCart = function () {
   data.state.cart = [];
   generateCart();
   checkCart();
+  setLocalStorage("cart", data.state.cart);
 };
 
 const adjustCard = function (id, num) {
@@ -50,6 +60,7 @@ const adjustCard = function (id, num) {
   data.state.cart[index].quantity += num;
   generateCart();
   checkCart();
+  setLocalStorage("cart", data.state.cart);
 };
 
 const addToCart = function () {
@@ -62,6 +73,7 @@ const addToCart = function () {
     articleView.changeBtn(1);
   }
   checkCart();
+  setLocalStorage("cart", data.state.cart);
 };
 const checkCart = function () {
   let pcsInCart;
@@ -92,13 +104,3 @@ searchBoxView.searchFor(searchControl);
 cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
-
-// const setLocalStorage = function (name, data) {
-//   localStorage.setItem(name, JSON.stringify(data));
-// };
-// const getLocalStorage = function () {
-//   let cart = JSON.parse(localStorage.getItem("cart"));
-//   if (!cart) return;
-//   data.cart = cart;
-//   console.log(data.cart);
-// };
