@@ -29,7 +29,16 @@ class MainView {
       ).innerHTML = `<span class="itemsincart__num">${quantity}</span>`;
     }
   }
-
+  logoAndTextClick(control) {
+    document.querySelector(".logo").addEventListener("click", function () {
+      control();
+    });
+    document
+      .querySelector(".header__text")
+      .addEventListener("click", function () {
+        control();
+      });
+  }
   generateShop() {
     return this.data.map(this.generateArticle).join("");
   }

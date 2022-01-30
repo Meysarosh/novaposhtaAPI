@@ -95,6 +95,9 @@ const searchControl = function (text) {
   if (searchResult.length == 0) return;
   mainView.render(searchResult);
 };
+const reloadPage = function () {
+  location.reload();
+};
 
 showShop();
 mainView.clickArticle(openArticle);
@@ -104,3 +107,4 @@ searchBoxView.searchFor(searchControl);
 cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
+mainView.logoAndTextClick(reloadPage);
