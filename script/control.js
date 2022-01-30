@@ -4,6 +4,7 @@ import articleView from "./views/articleView.js";
 import popupView from "./views/popupView.js";
 import searchBoxView from "./views/searchBoxView.js";
 import cartView from "./views/cartView.js";
+//////////////LOCAL STORAGE
 const setLocalStorage = function (name, data) {
   localStorage.setItem(name, JSON.stringify(data));
 };
@@ -12,13 +13,13 @@ const getLocalStorage = function () {
   if (!cart) return;
   data.state.cart = cart;
 };
-
+/////////////////SHOW ARTICLES (from data) IN SHOP
 const showShop = function () {
   mainView.render(data.articles);
   getLocalStorage();
   checkCart();
 };
-
+//////////////////SHOW ARTICLE ONCLICK
 let curArticle;
 
 const openArticle = function (id) {
@@ -34,7 +35,7 @@ const openArticle = function (id) {
     articleView.changeBtn(data.state.cart[index].quantity);
   }
 };
-
+////////////////////CART FUNCTIONALITY
 const generateCart = function () {
   let itemsInCart = [];
   data.state.cart.map((el) => {
@@ -58,6 +59,7 @@ const clearCart = function () {
 const adjustCard = function (id, num) {
   let index = data.state.cart.findIndex((el) => el.id == id);
   data.state.cart[index].quantity += num;
+  data.state.cart = data.state.cart.filter((obj) => obj.quantity > 0);
   generateCart();
   checkCart();
   setLocalStorage("cart", data.state.cart);
@@ -87,7 +89,7 @@ const checkCart = function () {
   }
   mainView.cartPreview(pcsInCart);
 };
-
+/////////////////////SEARCH FUNCTIONALITY
 const searchControl = function (text) {
   let searchResult = data.articles.filter((el) =>
     el.name.toLowerCase().includes(text.toLowerCase())
@@ -95,10 +97,12 @@ const searchControl = function (text) {
   if (searchResult.length == 0) return;
   mainView.render(searchResult);
 };
+///////////////////PAGE RELOAD
 const reloadPage = function () {
   location.reload();
 };
 
+///////FUNCTIONS CALL
 showShop();
 mainView.clickArticle(openArticle);
 

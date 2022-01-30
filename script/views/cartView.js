@@ -41,9 +41,10 @@ class CartView {
     <button class="popup__close">&times;</button>
       <div class="cart">
             <div class="cart__message">Items in your cart:</div>
-            ${this.data.map((obj) => {
-              total += obj.price * obj.quantity;
-              return `<div class="cart__item">
+            ${this.data
+              .map((obj) => {
+                total += obj.price * obj.quantity;
+                return `<div class="cart__item">
             <img
               src="${obj.img[0]}"
               alt="item photo"
@@ -58,7 +59,8 @@ class CartView {
               <button class="cart__item__quantity-btns btn--minus" data-id="${obj.id}">-</button>
             </div>
           </div>`;
-            })}
+              })
+              .join("")}
             <div class="cart__total">TOTAL: $${total.toFixed(2)}</div>
             <div class="cart__btns">
               <button class="cart__btns--clear">
