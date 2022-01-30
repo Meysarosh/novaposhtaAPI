@@ -18,6 +18,18 @@ class MainView {
     });
   }
 
+  cartPreview(quantity) {
+    if (quantity == 0) {
+      document.querySelector(".itemsincart").style.visibility = "hidden";
+      document.querySelector(".itemsincart").innerHTML = "";
+    } else {
+      document.querySelector(".itemsincart").style.visibility = "visible";
+      document.querySelector(
+        ".itemsincart"
+      ).innerHTML = `<span class="itemsincart__num">${quantity}</span>`;
+    }
+  }
+
   generateShop() {
     return this.data.map(this.generateArticle).join("");
   }

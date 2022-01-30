@@ -1,19 +1,79 @@
 import * as data from "./data.js";
-import MainView from "./views/mainView.js";
-import ArticleView from "./views/articleView.js";
-import PopupView from "./views/popupView.js";
+import mainView from "./views/mainView.js";
+import articleView from "./views/articleView.js";
 import popupView from "./views/popupView.js";
-import SearchBoxView from "./views/SearchBoxView.js";
+import searchBoxView from "./views/searchBoxView.js";
+import cartView from "./views/cartView.js";
 
 const showShop = function () {
-  MainView.render(data.articles);
+  mainView.render(data.articles);
+  checkCart();
 };
 
+let curArticle;
+
 const openArticle = function (id) {
-  let [curArticle] = data.articles.filter((article) => article.id == id);
-  ArticleView.render(curArticle);
+  [curArticle] = data.articles.filter((article) => article.id == id);
+  articleView.render(curArticle);
   popupView.popupCall();
-  ArticleView.generateSlide();
+  articleView.generateSlide();
+
+  articleView.cartBtnListener(addToCart);
+
+  if (data.state.cart.find((el) => el.id == curArticle.id)) {
+    let index = data.state.cart.findIndex((el) => el.id == curArticle.id);
+    articleView.changeBtn(data.state.cart[index].quantity);
+  }
+};
+
+const generateCart = function () {
+  let itemsInCart = [];
+  data.state.cart.map((el) => {
+    let [item] = data.articles.filter((article) => article.id == el.id);
+    item.quantity = el.quantity;
+    itemsInCart.push(item);
+  });
+  cartView.render(itemsInCart);
+};
+const openCart = function () {
+  generateCart();
+  popupView.popupCall();
+};
+const clearCart = function () {
+  data.state.cart = [];
+  generateCart();
+  checkCart();
+};
+
+const adjustCard = function (id, num) {
+  let index = data.state.cart.findIndex((el) => el.id == id);
+  data.state.cart[index].quantity += num;
+  generateCart();
+  checkCart();
+};
+
+const addToCart = function () {
+  if (data.state.cart.find((el) => el.id == curArticle.id)) {
+    let index = data.state.cart.findIndex((el) => el.id == curArticle.id);
+    data.state.cart[index].quantity++;
+    articleView.changeBtn(data.state.cart[index].quantity);
+  } else {
+    data.state.cart.push({ id: curArticle.id, quantity: 1 });
+    articleView.changeBtn(1);
+  }
+  checkCart();
+};
+const checkCart = function () {
+  let pcsInCart;
+  if (data.state.cart.length == 0) {
+    pcsInCart = 0;
+  } else {
+    pcsInCart = data.state.cart.reduce(function (acum, el) {
+      acum += el.quantity;
+      return acum;
+    }, 0);
+  }
+  mainView.cartPreview(pcsInCart);
 };
 
 const searchControl = function (text) {
@@ -21,11 +81,24 @@ const searchControl = function (text) {
     el.name.toLowerCase().includes(text.toLowerCase())
   );
   if (searchResult.length == 0) return;
-  MainView.render(searchResult);
+  mainView.render(searchResult);
 };
 
 showShop();
-MainView.clickArticle(openArticle);
+mainView.clickArticle(openArticle);
 
-SearchBoxView.searchBoxCall();
-SearchBoxView.searchFor(searchControl);
+searchBoxView.searchBoxCall();
+searchBoxView.searchFor(searchControl);
+cartView.clickCartBtn(openCart);
+cartView.clearCartBtn(clearCart);
+cartView.quantityBtns(adjustCard);
+
+// const setLocalStorage = function (name, data) {
+//   localStorage.setItem(name, JSON.stringify(data));
+// };
+// const getLocalStorage = function () {
+//   let cart = JSON.parse(localStorage.getItem("cart"));
+//   if (!cart) return;
+//   data.cart = cart;
+//   console.log(data.cart);
+// };

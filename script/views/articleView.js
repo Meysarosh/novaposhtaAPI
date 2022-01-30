@@ -1,6 +1,8 @@
 class ArticleView {
   data;
   parentElement = document.querySelector(".popup__window");
+  cartBtn = document.querySelector(".article__order-box__btn");
+
   render(data) {
     this.data = data;
     const markup = this.generateView();
@@ -11,8 +13,26 @@ class ArticleView {
     this.parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
-  ///slider
+  //cart btn
+  cartBtnListener(control) {
+    document
+      .querySelector(".article__order-box__btn")
+      .addEventListener("click", function (e) {
+        control();
+      });
+  }
+  changeBtn(quantity) {
+    document.querySelector(
+      ".article__order-box__btn__text"
+    ).innerHTML = `${quantity} ${quantity == 1 ? "pc" : "pcs"} IN CART`;
+    document.querySelector(".article__order-box__btn").style.color = "black";
+    document.querySelector(".article__order-box__btn").style.border =
+      "1px solid black";
+    document.querySelector(".article__order-box__btn__icon").style.fill =
+      "black";
+  }
 
+  ///slider
   generateSlide() {
     const dotsContainer = document.querySelector(".article__dots");
     const dots = document.querySelectorAll(".article__dots__dot");

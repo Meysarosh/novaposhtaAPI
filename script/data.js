@@ -187,3 +187,6 @@ export const articles = [
     type: "hard",
   },
 ];
+export const state = {
+  cart: [],
+};
