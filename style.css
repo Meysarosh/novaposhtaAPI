@@ -229,14 +229,18 @@ body {
     color: white;
     font-weight: bold; }
 
+.btn--plus {
+  margin-bottom: 2rem; }
+
 .cart {
   font-size: 1.5rem;
   font-weight: 700;
-  padding: 2rem;
+  padding-right: 1.5rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column; }
   .cart__message {
-    padding-bottom: 2rem;
+    padding: 2rem;
     border-bottom: 1px solid var(--cgl3); }
   .cart__item {
     padding: 2rem 0;
@@ -257,9 +261,10 @@ body {
       flex-direction: column;
       align-items: center;
       font-size: 2rem;
-      border: none;
+      width: 2.5rem;
       background-color: transparent; }
       .cart__item__quantity-btns:active {
+        border: 1px solid var(--dr);
         color: var(--dr); }
   .cart__total {
     display: inline;
@@ -270,6 +275,7 @@ body {
   .cart__btns {
     display: flex; }
     .cart__btns--clear {
+      margin-left: 2rem;
       margin-right: auto;
       background-color: transparent;
       border: 1px solid var(--dr);
