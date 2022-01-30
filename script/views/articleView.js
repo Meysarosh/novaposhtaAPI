@@ -35,23 +35,31 @@ class ArticleView {
           .classList.remove("article__dots__dot--active");
       dots[Math.abs(position)].classList.add("article__dots__dot--active");
     };
-    goToSlide();
 
-    sliderBtnRight.addEventListener("click", function () {
+    const nextImg = function () {
       Math.abs(position) + 1 < slides.length ? position-- : (position = 0);
       goToSlide();
       return position;
-    });
-    sliderBtnLeft.addEventListener("click", function () {
+    };
+
+    const prevImg = function () {
       position == 0 ? (position = 0 - slides.length + 1) : position++;
       goToSlide();
       return position;
-    });
+    };
+
+    goToSlide();
+    sliderBtnRight.addEventListener("click", nextImg);
+    sliderBtnLeft.addEventListener("click", prevImg);
     dotsContainer.addEventListener("click", function (el) {
       if (!el.target.classList.contains("article__dots__dot")) return;
       position = 0 - +el.target.dataset.slide;
       goToSlide();
       return position;
+    });
+    document.addEventListener("keydown", function (event) {
+      event.key == "ArrowRight" && nextImg();
+      event.key == "ArrowLeft" && prevImg();
     });
   }
   ///
