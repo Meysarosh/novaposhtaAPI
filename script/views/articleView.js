@@ -81,6 +81,23 @@ class ArticleView {
       event.key == "ArrowRight" && nextImg();
       event.key == "ArrowLeft" && prevImg();
     });
+    //////////tuochscreen slider
+    let touchstart;
+    let touchend;
+    document
+      .querySelector(".article__slider")
+      .addEventListener("touchstart", function (e) {
+        touchstart = e.changedTouches[0].clientX;
+      });
+    document
+      .querySelector(".article__slider")
+      .addEventListener("touchend", function (e) {
+        touchend = e.changedTouches[0].clientX;
+
+        if (touchstart - touchend > 60) nextImg();
+        if (touchstart - touchend < -60) prevImg();
+      });
+    /////////////////////
   }
   ///
   generateView() {
