@@ -39,6 +39,33 @@ class MainView {
         control();
       });
   }
+  backToTopBtn() {
+    //INTERSECTION OBSERVER
+    let btn = document.querySelector(".back-to-top__btn");
+    let options = {
+      root: null,
+      rootMargin: `250px`,
+      threshold: 0,
+    };
+    let target = document.querySelector(".header");
+
+    let callback = function (entries, observer) {
+      let entry = entries[0];
+
+      if (!entry.isIntersecting) {
+        btn.style.visibility = "visible";
+      } else {
+        btn.style.visibility = "hidden";
+      }
+    };
+    let observer = new IntersectionObserver(callback, options);
+    observer.observe(target);
+    ///ONCLICK EVENT LISTENER
+    btn.addEventListener("click", function () {
+      target.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
   generateShop() {
     return this.data.map(this.generateArticle).join("");
   }

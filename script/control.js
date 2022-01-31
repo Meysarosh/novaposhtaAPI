@@ -101,6 +101,8 @@ const searchControl = function (text) {
 const reloadPage = function () {
   location.reload();
 };
+//////////////BACK TO TOP BUTTON
+mainView.backToTopBtn();
 
 ///////FUNCTIONS CALL
 showShop();
