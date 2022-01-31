@@ -4,6 +4,7 @@ import articleView from "./views/articleView.js";
 import popupView from "./views/popupView.js";
 import searchBoxView from "./views/searchBoxView.js";
 import cartView from "./views/cartView.js";
+import menuView from "./views/menuView.js";
 //////////////LOCAL STORAGE
 const setLocalStorage = function (name, data) {
   localStorage.setItem(name, JSON.stringify(data));
@@ -110,6 +111,7 @@ mainView.clickArticle(openArticle);
 
 searchBoxView.searchBoxCall();
 searchBoxView.searchFor(searchControl);
+menuView.menuBtnClick();
 cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);

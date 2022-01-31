@@ -29,6 +29,7 @@ class MainView {
       ).innerHTML = `<span class="itemsincart__num">${quantity}</span>`;
     }
   }
+
   logoAndTextClick(control) {
     document.querySelector(".logo").addEventListener("click", function () {
       control();
@@ -39,6 +40,7 @@ class MainView {
         control();
       });
   }
+
   backToTopBtn() {
     //INTERSECTION OBSERVER
     let btn = document.querySelector(".back-to-top__btn");
