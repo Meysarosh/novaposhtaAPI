@@ -428,6 +428,7 @@ body {
     fill: var(--rb); }
 
 .menu {
+  padding: 1rem;
   visibility: hidden;
   opacity: 0;
   position: absolute;
@@ -470,3 +471,14 @@ body {
       border-bottom: 1px solid var(--cgl4); }
     .menu__btn:active {
       color: blue; }
+
+.policy {
+  padding: 1.5rem; }
+  .policy__header {
+    border-bottom: 1px solid var(--cgl4);
+    color: var(--rb); }
+  .policy__list {
+    font-size: 1.5rem; }
+    .policy__list__item {
+      border-bottom: 1px solid var(--cgl4);
+      font-weight: 700; }

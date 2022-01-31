@@ -5,6 +5,7 @@ import popupView from "./views/popupView.js";
 import searchBoxView from "./views/searchBoxView.js";
 import cartView from "./views/cartView.js";
 import menuView from "./views/menuView.js";
+import policyView from "./views/policyView.js";
 //////////////LOCAL STORAGE
 const setLocalStorage = function (name, data) {
   localStorage.setItem(name, JSON.stringify(data));
@@ -105,14 +106,32 @@ const reloadPage = function () {
 //////////////BACK TO TOP BUTTON
 mainView.backToTopBtn();
 
+//////////////////MENU
+const controlMenu = function (comand) {
+  if (comand == "show") menuView.showMenu();
+  if (comand == "hide") menuView.hideMenu();
+  if (comand == "cart") {
+    menuView.hideMenu();
+    openCart();
+  }
+  if (comand == "check") console.log("novaposhtaAPI");
+  if (comand == "contacts") {
+    menuView.hideMenu();
+    menuView.goToContacts();
+  }
+  if (comand == "policy") {
+    menuView.hideMenu();
+    popupView.popupCall();
+    policyView.render("");
+  }
+};
 ///////FUNCTIONS CALL
 showShop();
 mainView.clickArticle(openArticle);
-
+mainView.logoAndTextClick(reloadPage);
 searchBoxView.searchBoxCall();
 searchBoxView.searchFor(searchControl);
-menuView.menuBtnClick();
+menuView.menuBtnClick(controlMenu);
 cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
-mainView.logoAndTextClick(reloadPage);

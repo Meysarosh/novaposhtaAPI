@@ -1,0 +1,15 @@
+.policy {
+  padding: 1.5rem;
+  &__header {
+    border-bottom: 1px solid var(--cgl4);
+    color: var(--rb);
+  }
+  &__list {
+    font-size: 1.5rem;
+
+    &__item {
+      border-bottom: 1px solid var(--cgl4);
+      font-weight: 700;
+    }
+  }
+}
