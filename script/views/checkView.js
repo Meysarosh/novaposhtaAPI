@@ -15,6 +15,14 @@ class CheckView {
   enterCityName(control) {
     this.parentElement.addEventListener("click", function (e) {
       if (!e.target.classList.contains("check__input--submit")) return;
+      document.querySelector(".check__response").innerHTML = `
+      <svg class="cart__btns--clear__icon">
+                  <use xlink:href="img/symbol.svg#icon-hour-glass"></use>
+                </svg>
+      <p class="check__response-text" style="color:red">
+             Please wait...
+              </p>`;
+
       let input = document.querySelector(".check__input--form").value.trim();
       let cityName = input[0].toUpperCase() + input.substring(1);
       control(cityName);
