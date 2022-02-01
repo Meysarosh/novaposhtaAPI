@@ -190,3 +190,47 @@ export const articles = [
 export const state = {
   cart: [],
 };
+
+//////////////////////////////
+//Request the list of cities with all necessary data for requesting delivery cost and estimated date...
+export const requestCityList = async function () {
+  const request = {
+    modelName: "Address",
+    calledMethod: "getCities",
+    apiKey: "9e29b400367d47fac9f0dbc4598018a5",
+  };
+
+  const response = await fetch(`https://api.novaposhta.ua/v2.0/json/`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+  const data = await response.json();
+  // console.log(data);
+  return data.data;
+};
+//request estimated delivery date
+export const requestDeliveryDate = async function (cityRef) {
+  const request = {
+    apiKey: "9e29b400367d47fac9f0dbc4598018a5",
+    modelName: "InternetDocument",
+    calledMethod: "getDocumentDeliveryDate",
+    methodProperties: {
+      ServiceType: "WarehouseWarehouse",
+      CitySender: "78ebfe5f-c39f-11e3-9fa0-0050568002cf",
+      CityRecipient: cityRef,
+    },
+  };
+  const response = await fetch(`https://api.novaposhta.ua/v2.0/json/`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+  const data = await response.json();
+  // console.log(data.data[0].DeliveryDate.date);
+  return data.data[0].DeliveryDate.date;
+};

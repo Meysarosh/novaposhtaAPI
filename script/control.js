@@ -6,6 +6,7 @@ import searchBoxView from "./views/searchBoxView.js";
 import cartView from "./views/cartView.js";
 import menuView from "./views/menuView.js";
 import policyView from "./views/policyView.js";
+import checkView from "./views/checkView.js";
 //////////////LOCAL STORAGE
 const setLocalStorage = function (name, data) {
   localStorage.setItem(name, JSON.stringify(data));
@@ -114,7 +115,11 @@ const controlMenu = function (comand) {
     menuView.hideMenu();
     openCart();
   }
-  if (comand == "check") console.log("novaposhtaAPI");
+  if (comand == "check") {
+    menuView.hideMenu();
+    popupView.popupCall();
+    checkView.render("");
+  }
   if (comand == "contacts") {
     menuView.hideMenu();
     menuView.goToContacts();
@@ -125,6 +130,14 @@ const controlMenu = function (comand) {
     policyView.render("");
   }
 };
+////////////Check delivery date
+const controlCityRequest = async function (cityName) {
+  const cityList = await data.requestCityList();
+  const cityRef = cityList.filter((obj) => obj.Description == cityName)[0].Ref;
+  const date = await data.requestDeliveryDate(cityRef);
+  checkView.generateResponse(cityName, date);
+};
+
 ///////FUNCTIONS CALL
 showShop();
 mainView.clickArticle(openArticle);
@@ -135,3 +148,4 @@ menuView.menuBtnClick(controlMenu);
 cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
+checkView.enterCityName(controlCityRequest);

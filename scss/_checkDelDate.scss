@@ -1,0 +1,41 @@
+.check {
+  padding: 1.5rem;
+
+  &__title {
+    padding: 1rem;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    color: var(--rb);
+    text-align: center;
+    border-bottom: 1px solid var(--cgl4);
+  }
+  &__description {
+    margin: 2rem 0;
+    font-size: 1.5rem;
+  }
+  &__input {
+    margin-bottom: 5rem;
+
+    &--form {
+      width: 70%;
+      font-size: 2rem;
+      border-radius: 1rem;
+      padding: 0.5rem 1.5rem;
+      border: 2px solid var(--rb);
+    }
+    &--submit {
+      font-size: 2rem;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 1rem;
+      border: none;
+      background-color: var(--rb);
+    }
+  }
+  &__response-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: green;
+    margin-bottom: 5rem;
+  }
+}
