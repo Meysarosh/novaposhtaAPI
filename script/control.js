@@ -16,6 +16,10 @@ const getLocalStorage = function () {
   if (!cart) return;
   data.state.cart = cart;
 };
+////////////close popup
+const controlClosePopup = function () {
+  popupView.hidePopup();
+};
 /////////////////SHOW ARTICLES (from data) IN SHOP
 const showShop = function () {
   mainView.render(data.articles);
@@ -92,6 +96,13 @@ const checkCart = function () {
   }
   mainView.cartPreview(pcsInCart);
 };
+const formCartToArticle = function (id) {
+  controlClosePopup();
+
+  setTimeout(function () {
+    openArticle(id);
+  }, 150);
+};
 /////////////////////SEARCH FUNCTIONALITY
 const searchControl = function (text) {
   let searchResult = data.articles.filter((el) =>
@@ -146,6 +157,7 @@ const controlCityRequest = async function (cityName) {
 
 ///////FUNCTIONS CALL
 showShop();
+popupView.closePopup(controlClosePopup);
 mainView.clickArticle(openArticle);
 mainView.logoAndTextClick(reloadPage);
 searchBoxView.searchBoxCall();
@@ -154,5 +166,5 @@ menuView.menuBtnClick(controlMenu);
 cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
-cartView.goToArticle(openArticle);
+cartView.goToArticle(formCartToArticle);
 checkView.enterCityName(controlCityRequest);

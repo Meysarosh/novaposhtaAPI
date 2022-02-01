@@ -7,19 +7,19 @@ class PopupView {
     this.popup.style.visibility = "visible";
     this.popup.style.opacity = "1";
     this.popupWindow.style.transform = "translate(-50%, -50%) scale(1)";
-
-    const closePopup = function () {
-      document.querySelector(".popup__window").style.transform =
-        "translate(-50%, -50%) scale(0.5)";
-      document.querySelector(".popup").style.opacity = "0";
-      document.querySelector(".popup").style.visibility = "hidden";
-    };
+  }
+  hidePopup() {
+    this.popupWindow.style.transform = "translate(-50%, -50%) scale(0.5)";
+    this.popup.style.opacity = "0";
+    this.popup.style.visibility = "hidden";
+  }
+  closePopup(control) {
     this.popup.addEventListener("click", function (el) {
-      if (!el.target.classList.contains("popup__close")) return;
-      closePopup();
-    });
-    this.popup.addEventListener("click", function (el) {
-      if (el.target.classList.contains("popup")) closePopup();
+      if (
+        el.target.classList.contains("popup") ||
+        el.target.classList.contains("popup__close")
+      )
+        control();
     });
   }
 }
