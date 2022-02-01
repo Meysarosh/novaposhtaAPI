@@ -12,6 +12,14 @@ class CartView {
     this.parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
+  goToArticle(control) {
+    this.parentElement.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("cart__item__info")) return;
+      let id = e.target.dataset.id;
+      control(id);
+    });
+  }
+
   clickCartBtn(control) {
     document
       .querySelector(".shopping-cart__btn")
@@ -50,7 +58,7 @@ class CartView {
               alt="item photo"
               class="cart__item__img"
             />
-            <p class="cart__item__info">${obj.name}</p>
+            <p class="cart__item__info" data-id="${obj.id}">${obj.name}</p>
             <p class="cart__item__price">$${obj.price}</p>
 
             <p class="cart__item__quantity">x ${obj.quantity}</p>

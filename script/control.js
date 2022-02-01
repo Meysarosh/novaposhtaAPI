@@ -154,4 +154,5 @@ menuView.menuBtnClick(controlMenu);
 cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
+cartView.goToArticle(openArticle);
 checkView.enterCityName(controlCityRequest);

@@ -253,10 +253,14 @@ body {
       height: 10rem; }
     .cart__item__info {
       width: 7rem;
-      height: 7rem; }
+      height: 7rem;
+      cursor: pointer;
+      text-decoration: underline;
+      color: blue; }
     .cart__item__price {
       color: red; }
     .cart__item__quantity-btns {
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -282,6 +286,7 @@ body {
       border-radius: 2rem;
       padding: 0.5rem 1rem;
       color: var(--dr);
+      cursor: pointer;
       display: flex;
       align-items: center; }
       .cart__btns--clear:active {
@@ -304,7 +309,8 @@ body {
       border-radius: 2rem;
       padding: 0.5rem 1rem;
       display: flex;
-      align-items: center; }
+      align-items: center;
+      cursor: pointer; }
       .cart__btns--order:active {
         background-color: green;
         color: white; }
