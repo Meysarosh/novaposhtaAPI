@@ -132,6 +132,7 @@ const controlMenu = function (comand) {
 };
 ////////////Check delivery date
 const controlCityRequest = async function (cityName) {
+  console.log(cityName);
   const cityList = await data.requestCityList();
   const cityRef = cityList.filter((obj) => obj.Description == cityName)[0].Ref;
   const date = await data.requestDeliveryDate(cityRef);

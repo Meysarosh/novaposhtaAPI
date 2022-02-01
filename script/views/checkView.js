@@ -15,7 +15,8 @@ class CheckView {
   enterCityName(control) {
     this.parentElement.addEventListener("click", function (e) {
       if (!e.target.classList.contains("check__input--submit")) return;
-      let cityName = document.querySelector(".check__input--form").value;
+      let input = document.querySelector(".check__input--form").value.trim();
+      let cityName = input[0].toUpperCase() + input.substring(1);
       control(cityName);
     });
   }
@@ -33,6 +34,11 @@ class CheckView {
             <div class="check__description">
               <h3>
                 Please enter the name of the city to which you want to deliver:
+              </h3>
+            </div>
+            <div class="check__description-2">
+              <h3>
+                Important! City must be located in Ukraine and written only in Ukrainian! (Example: Львів)
               </h3>
             </div>
             <div class="check__input">
