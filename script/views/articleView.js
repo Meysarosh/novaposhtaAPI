@@ -30,8 +30,18 @@ class ArticleView {
       "1px solid black";
     document.querySelector(".article__order-box__btn__icon").style.fill =
       "black";
+    if (document.querySelector(".article__btn-hidden"))
+      document
+        .querySelector(".article__btn-hidden")
+        .classList.remove("article__btn-hidden");
   }
 
+  goToCart(control) {
+    this.parentElement.addEventListener("click", function (e) {
+      if (!e.target.closest(".article__btn")) return;
+      control();
+    });
+  }
   ///slider
   generateSlide() {
     const dotsContainer = document.querySelector(".article__dots");
@@ -151,6 +161,12 @@ class ArticleView {
           <span class="article__order-box__btn__text">ADD TO CART</span>
         </button>
       </div>
+      <button class="article__btn article__btn-hidden">
+          <svg class="article__order-box__btn__icon">
+            <use xlink:href="img/symbol.svg#icon-login"></use>
+          </svg>
+          <span class="article__order-box__btn__text">GO TO CART</span>
+        </button>
       <div class="article__details">
         <p class="article__details__text">Size: ${this.data.size}</p>
         <p class="article__details__text">

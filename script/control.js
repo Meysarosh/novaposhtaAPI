@@ -42,6 +42,13 @@ const openArticle = function (id) {
     articleView.changeBtn(data.state.cart[index].quantity);
   }
 };
+const fromArticleToCart = function () {
+  controlClosePopup();
+
+  setTimeout(function () {
+    openCart();
+  }, 150);
+};
 ////////////////////CART FUNCTIONALITY
 const generateCart = function () {
   let itemsInCart = [];
@@ -158,6 +165,7 @@ const controlCityRequest = async function (cityName) {
 ///////FUNCTIONS CALL
 showShop();
 popupView.closePopup(controlClosePopup);
+articleView.goToCart(fromArticleToCart);
 mainView.clickArticle(openArticle);
 mainView.logoAndTextClick(reloadPage);
 searchBoxView.searchBoxCall();

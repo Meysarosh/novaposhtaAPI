@@ -84,7 +84,7 @@
     width: 100%;
     margin: 2rem 0;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
 
     &__price {
@@ -93,6 +93,7 @@
       color: var(--rbd);
     }
     &__btn {
+      margin-left: auto;
       background-color: transparent;
       border: 1px solid var(--dr);
       border-radius: 2rem;
@@ -119,6 +120,28 @@
         height: 3.5rem;
         fill: var(--dr);
       }
+    }
+  }
+  &__btn {
+    margin-left: auto;
+    background-color: transparent;
+    border: 1px solid var(--dr);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    color: var(--dr);
+
+    display: flex;
+    align-items: center;
+
+    &:active {
+      color: white;
+      background-color: var(--dr);
+    }
+    &:active &__icon {
+      fill: white;
+    }
+    &-hidden {
+      display: none;
     }
   }
   &__details {

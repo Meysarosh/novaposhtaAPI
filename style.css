@@ -188,13 +188,13 @@ body {
     width: 100%;
     margin: 2rem 0;
     display: flex;
-    justify-content: space-between;
     align-items: center; }
     .article__order-box__price {
       font-size: 2rem;
       font-weight: 700;
       color: var(--rbd); }
     .article__order-box__btn {
+      margin-left: auto;
       background-color: transparent;
       border: 1px solid var(--dr);
       border-radius: 2rem;
@@ -214,6 +214,22 @@ body {
         width: 3.5rem;
         height: 3.5rem;
         fill: var(--dr); }
+  .article__btn {
+    margin-left: auto;
+    background-color: transparent;
+    border: 1px solid var(--dr);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    color: var(--dr);
+    display: flex;
+    align-items: center; }
+    .article__btn:active {
+      color: white;
+      background-color: var(--dr); }
+    .article__btn:active .article__btn__icon {
+      fill: white; }
+    .article__btn-hidden {
+      display: none; }
   .article__details__text {
     font-size: 1.6rem;
     font-weight: 400; }
