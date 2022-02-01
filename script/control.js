@@ -132,11 +132,16 @@ const controlMenu = function (comand) {
 };
 ////////////Check delivery date
 const controlCityRequest = async function (cityName) {
-  console.log(cityName);
-  const cityList = await data.requestCityList();
-  const cityRef = cityList.filter((obj) => obj.Description == cityName)[0].Ref;
-  const date = await data.requestDeliveryDate(cityRef);
-  checkView.generateResponse(cityName, date);
+  try {
+    const cityList = await data.requestCityList();
+    const cityRef = cityList.filter((obj) => obj.Description == cityName)[0]
+      .Ref;
+    if (cityRef.length == 0) throw new Error();
+    const date = await data.requestDeliveryDate(cityRef);
+    checkView.generateResponse(cityName, date);
+  } catch (err) {
+    checkView.errorMessage();
+  }
 };
 
 ///////FUNCTIONS CALL

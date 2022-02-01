@@ -38,7 +38,7 @@ class CheckView {
             </div>
             <div class="check__description-2">
               <h3>
-                Important! City must be located in Ukraine and written only in Ukrainian! (Example: Львів)
+                Important! City must be located in Ukraine and written only in Ukrainian! (Example: львів)
               </h3>
             </div>
             <div class="check__input">
@@ -61,6 +61,12 @@ class CheckView {
       0,
       16
     )}
+              </p>`;
+  }
+  errorMessage() {
+    document.querySelector(".check__response").innerHTML = `
+      <p class="check__response-text" style="color:red">
+             Wrong input! Please check your input or there is No such city in Ukraine.
               </p>`;
   }
 }
