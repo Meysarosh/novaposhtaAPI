@@ -8,12 +8,18 @@ class PopupView {
     this.popup.style.opacity = "1";
     this.popupWindow.style.transform = "translate(-50%, -50%) scale(1)";
 
-    this.popup.addEventListener("click", function (el) {
-      if (!el.target.classList.contains("popup__close")) return;
+    const closePopup = function () {
       document.querySelector(".popup__window").style.transform =
         "translate(-50%, -50%) scale(0.5)";
       document.querySelector(".popup").style.opacity = "0";
       document.querySelector(".popup").style.visibility = "hidden";
+    };
+    this.popup.addEventListener("click", function (el) {
+      if (!el.target.classList.contains("popup__close")) return;
+      closePopup();
+    });
+    this.popup.addEventListener("click", function (el) {
+      if (el.target.classList.contains("popup")) closePopup();
     });
   }
 }

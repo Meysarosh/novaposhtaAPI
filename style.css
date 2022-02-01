@@ -494,17 +494,24 @@ body {
     border-bottom: 1px solid var(--cgl4); }
   .check__description {
     margin: 2rem 0;
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    line-height: 2.2rem; }
     .check__description-2 {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      font-style: italic;
       color: var(--dr); }
   .check__input {
     margin-bottom: 5rem; }
     .check__input--form {
-      width: 70%;
+      width: 50%;
       font-size: 2rem;
       border-radius: 1rem;
       padding: 0.5rem 1.5rem;
-      border: 2px solid var(--rb); }
+      border: 2px solid var(--rb);
+      transition: all 0.2s; }
+      .check__input--form:focus {
+        width: 70%; }
     .check__input--submit {
       font-size: 2rem;
       color: white;
