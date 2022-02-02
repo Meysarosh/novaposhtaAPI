@@ -7,6 +7,8 @@ import cartView from "./views/cartView.js";
 import menuView from "./views/menuView.js";
 import policyView from "./views/policyView.js";
 import checkView from "./views/checkView.js";
+import helperBoxView from "./views/helperBoxView.js";
+import filterView from "./views/filterView.js";
 //////////////LOCAL STORAGE
 const setLocalStorage = function (name, data) {
   localStorage.setItem(name, JSON.stringify(data));
@@ -162,7 +164,14 @@ const controlCityRequest = async function (cityName) {
     checkView.errorMessage();
   }
 };
-
+////filter
+const showFilter = function () {
+  helperBoxView.showBox();
+  filterView.render("");
+};
+const controlFilter = function () {
+  helperBoxView.hideBox();
+};
 ///////FUNCTIONS CALL
 showShop();
 popupView.closePopup(controlClosePopup);
@@ -177,3 +186,5 @@ cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
 cartView.goToArticle(formCartToArticle);
+filterView.filterCall(showFilter);
+filterView.applyBtn(controlFilter);

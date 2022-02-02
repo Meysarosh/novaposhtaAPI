@@ -61,35 +61,6 @@ body {
   background-image: linear-gradient(rgba(255, 255, 255, 0.816), rgba(255, 255, 255, 0.782)), url("img/back-small.jpg");
   background-attachment: fixed; }
 
-.helper {
-  display: flex;
-  justify-content: space-evenly; }
-  .helper__filter {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 1rem; }
-    .helper__filter__btn {
-      width: 12rem;
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--rb);
-      border-radius: 1.5rem;
-      background-color: rgba(255, 255, 255, 0.5);
-      font-size: 2rem;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center; }
-      .helper__filter__btn:active {
-        transform: translateY(0.5rem); }
-    .helper__filter__icon {
-      width: 3rem;
-      height: 2rem;
-      fill: var(--rb); }
-    .helper__filter__title {
-      font-size: 1.6rem;
-      margin-right: 1.5rem;
-      font-weight: 400;
-      color: var(--rb); }
-
 .shop {
   width: 100%;
   display: flex;
@@ -588,3 +559,47 @@ a.footer__text {
       font-weight: 700;
       color: green;
       margin-bottom: 5rem; }
+
+.helper__btns {
+  display: flex;
+  justify-content: space-evenly; }
+  .helper__btns__filter__btn, .helper__btns__sortby__btn {
+    margin-bottom: 1rem;
+    width: 12rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--rb);
+    border-radius: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; }
+    .helper__btns__filter__btn:active, .helper__btns__sortby__btn:active {
+      transform: translateY(0.5rem); }
+  .helper__btns__filter__icon, .helper__btns__sortby__icon {
+    width: 3rem;
+    height: 2rem;
+    fill: var(--rb); }
+  .helper__btns__filter__title, .helper__btns__sortby__title {
+    font-size: 1.6rem;
+    margin-right: 1.5rem;
+    font-weight: 400;
+    color: var(--rb); }
+
+.helper__box {
+  width: 100%;
+  background-color: white;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  visibility: hidden;
+  padding: 0;
+  transition: all 0.3s; }
+
+input.helper {
+  margin: 0.5rem; }
+
+.filter-apply {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.75rem; }
