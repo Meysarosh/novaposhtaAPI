@@ -1,7 +1,6 @@
 class PopupView {
   popup = document.querySelector(".popup");
   popupWindow = document.querySelector(".popup__window");
-  popupCloseBtn = document.querySelector(".popup__close");
 
   popupCall() {
     this.popup.style.visibility = "visible";

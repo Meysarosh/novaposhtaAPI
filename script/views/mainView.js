@@ -1,15 +1,7 @@
-class MainView {
-  data;
+import View from "./extendView.js";
+
+class MainView extends View {
   parentElement = document.querySelector(".shop");
-  render(data) {
-    this.data = data;
-    const markup = this.generateShop();
-    this.clearAndPaste(markup);
-  }
-  clearAndPaste(markup) {
-    this.parentElement.innerHTML = "";
-    this.parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
 
   clickArticle(control) {
     this.parentElement.addEventListener("click", function (el) {
@@ -68,7 +60,7 @@ class MainView {
     });
   }
 
-  generateShop() {
+  generateView() {
     return this.data.map(this.generateArticle).join("");
   }
 

@@ -1,15 +1,8 @@
-class PolicyView {
-  data;
+import View from "./extendView.js";
+
+class PolicyView extends View {
   parentElement = document.querySelector(".popup__window");
-  render(data) {
-    this.data = data;
-    const markup = this.generateView();
-    this.clearAndPaste(markup);
-  }
-  clearAndPaste(markup) {
-    this.parentElement.innerHTML = "";
-    this.parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
+
   generateView() {
     return `<button class="popup__close">&times;</button>
     <div class="policy">

@@ -1,16 +1,7 @@
-class CartView {
-  data;
-  parentElement = document.querySelector(".popup__window");
+import View from "./extendView.js";
 
-  render(data) {
-    this.data = data;
-    const markup = this.generateView();
-    this.clearAndPaste(markup);
-  }
-  clearAndPaste(markup) {
-    this.parentElement.innerHTML = "";
-    this.parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
+class CartView extends View {
+  parentElement = document.querySelector(".popup__window");
 
   goToArticle(control) {
     this.parentElement.addEventListener("click", function (e) {

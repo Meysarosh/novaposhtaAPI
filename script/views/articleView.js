@@ -1,19 +1,9 @@
-class ArticleView {
-  data;
+import View from "./extendView.js";
+
+class ArticleView extends View {
   parentElement = document.querySelector(".popup__window");
   cartBtn = document.querySelector(".article__order-box__btn");
 
-  render(data) {
-    this.data = data;
-    const markup = this.generateView();
-    this.clearAndPaste(markup);
-  }
-  clearAndPaste(markup) {
-    this.parentElement.innerHTML = "";
-    this.parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-
-  //cart btn
   cartBtnListener(control) {
     document
       .querySelector(".article__order-box__btn")
