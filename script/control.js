@@ -137,6 +137,7 @@ const controlMenu = function (comand) {
     menuView.hideMenu();
     popupView.popupCall();
     checkView.render("");
+    checkView.enterCityName(controlCityRequest);
   }
   if (comand == "contacts") {
     menuView.hideMenu();
@@ -175,4 +176,3 @@ cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
 cartView.goToArticle(formCartToArticle);
-checkView.enterCityName(controlCityRequest);

@@ -13,16 +13,16 @@
     margin: 2rem 0;
     font-size: 1.5rem;
     line-height: 2.2rem;
+    color: var(--cgd1);
     &-2 {
       font-size: 1.25rem;
       line-height: 1.75rem;
       font-style: italic;
-      color: var(--dr);
+      color: var(--cgd1);
+      margin: 2rem 0;
     }
   }
   &__input {
-    margin-bottom: 5rem;
-
     &--form {
       width: 50%;
       font-size: 2rem;
@@ -32,7 +32,9 @@
       transition: all 0.2s;
 
       &:focus {
-        width: 70%;
+        width: 60%;
+        border: 2px solid var(--rb);
+        background-color: var(--cgl4);
       }
     }
     &--submit {
@@ -44,10 +46,15 @@
       background-color: var(--rb);
     }
   }
-  &__response-text {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: green;
-    margin-bottom: 5rem;
+  &__response {
+    border-top: 1px solid var(--cgl4);
+    padding-top: 1rem;
+    display: flex;
+    &-text {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: green;
+      margin-bottom: 5rem;
+    }
   }
 }

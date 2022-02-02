@@ -1,8 +1,6 @@
 class SearchBoxView {
   searchBtn = document.querySelector(".search");
 
-  searchBoxBtn = document.querySelector("search-box__btn");
-
   searchBoxCall() {
     this.searchBtn.addEventListener("click", function () {
       const searchBox = document.querySelector(".search-box");
@@ -13,8 +11,9 @@ class SearchBoxView {
 
   searchFor(control) {
     document
-      .querySelector(".search-box__btn")
-      .addEventListener("click", function () {
+      .querySelector(".search-box")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
         let searchBoxInput = document.querySelector(".search-box__input").value;
         control(searchBoxInput);
       });
