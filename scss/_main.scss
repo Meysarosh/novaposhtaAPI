@@ -135,9 +135,44 @@ body {
 }
 
 .footer {
-  background-color: var(--rbl);
+  background-color: var(--rb);
+  padding: 2rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  &__menu {
+    display: flex;
+    justify-content: space-evenly;
+    &-btn {
+      border: none;
+      border-bottom: 1px solid white;
+      background-color: transparent;
+      font-size: 1.5rem;
+      color: white;
+      text-transform: uppercase;
+    }
+  }
   &__info {
-    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    &__contacts {
+      &-1 {
+        display: flex;
+      }
+      &-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: white;
+        padding-right: 1rem;
+      }
+    }
+    &__social {
+      display: inline;
+    }
+  }
+  &__author {
     display: flex;
     justify-content: center;
   }
@@ -145,12 +180,20 @@ body {
     width: 3rem;
     height: 3rem;
     fill: white;
+    margin-right: 1rem;
   }
   &__text {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: white;
   }
+}
+a.footer__text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid white;
 }
 // flex-direction: column;
 // align-self: stretch;

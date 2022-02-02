@@ -169,6 +169,7 @@ popupView.closePopup(controlClosePopup);
 articleView.goToCart(fromArticleToCart);
 mainView.clickArticle(openArticle);
 mainView.logoAndTextClick(reloadPage);
+mainView.footerMenu(controlMenu);
 searchBoxView.searchBoxCall();
 searchBoxView.searchFor(searchControl);
 menuView.menuBtnClick(controlMenu);

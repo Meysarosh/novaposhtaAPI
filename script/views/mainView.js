@@ -60,6 +60,16 @@ class MainView extends View {
     });
   }
 
+  footerMenu(control) {
+    document
+      .querySelector(".footer__menu")
+      .addEventListener("click", function (e) {
+        if (e.target.classList.contains("menu-cart")) control("cart");
+        if (e.target.classList.contains("menu-check")) control("check");
+        if (e.target.classList.contains("menu-policy")) control("policy");
+      });
+  }
+
   generateView() {
     return this.data.map(this.generateArticle).join("");
   }

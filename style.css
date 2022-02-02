@@ -111,19 +111,52 @@ body {
       color: red; }
 
 .footer {
-  background-color: var(--rbl); }
+  background-color: var(--rb);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column; }
+  .footer__menu {
+    display: flex;
+    justify-content: space-evenly; }
+    .footer__menu-btn {
+      border: none;
+      border-bottom: 1px solid white;
+      background-color: transparent;
+      font-size: 1.5rem;
+      color: white;
+      text-transform: uppercase; }
   .footer__info {
-    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0; }
+    .footer__info__contacts-1 {
+      display: flex; }
+    .footer__info__contacts-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: white;
+      padding-right: 1rem; }
+    .footer__info__social {
+      display: inline; }
+  .footer__author {
     display: flex;
     justify-content: center; }
   .footer__icon {
     width: 3rem;
     height: 3rem;
-    fill: white; }
+    fill: white;
+    margin-right: 1rem; }
   .footer__text {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: white; }
+
+a.footer__text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid white; }
 
 .article {
   padding: 1rem;
