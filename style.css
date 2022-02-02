@@ -61,31 +61,34 @@ body {
   background-image: linear-gradient(rgba(255, 255, 255, 0.816), rgba(255, 255, 255, 0.782)), url("img/back-small.jpg");
   background-attachment: fixed; }
 
-.filter {
+.helper {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 1rem; }
-  .filter__btn {
-    width: 12rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--rb);
-    border-radius: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    font-size: 2rem;
+  justify-content: space-evenly; }
+  .helper__filter {
     display: flex;
     justify-content: space-evenly;
-    align-items: center; }
-    .filter__btn:active {
-      transform: translateY(0.5rem); }
-  .filter__icon {
-    width: 3rem;
-    height: 2rem;
-    fill: var(--rb); }
-  .filter__title {
-    font-size: 1.6rem;
-    margin-right: 1.5rem;
-    font-weight: 400;
-    color: var(--rb); }
+    margin-bottom: 1rem; }
+    .helper__filter__btn {
+      width: 12rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--rb);
+      border-radius: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.5);
+      font-size: 2rem;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center; }
+      .helper__filter__btn:active {
+        transform: translateY(0.5rem); }
+    .helper__filter__icon {
+      width: 3rem;
+      height: 2rem;
+      fill: var(--rb); }
+    .helper__filter__title {
+      font-size: 1.6rem;
+      margin-right: 1.5rem;
+      font-weight: 400;
+      color: var(--rb); }
 
 .shop {
   width: 100%;
