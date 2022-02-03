@@ -9,6 +9,7 @@ import policyView from "./views/policyView.js";
 import checkView from "./views/checkView.js";
 import helperBoxView from "./views/helperBoxView.js";
 import filterView from "./views/filterView.js";
+import sortByView from "./views/sortByView.js";
 //////////////LOCAL STORAGE
 const setLocalStorage = function (name, data) {
   localStorage.setItem(name, JSON.stringify(data));
@@ -113,14 +114,6 @@ const formCartToArticle = function (id) {
     openArticle(id);
   }, 150);
 };
-/////////////////////SEARCH FUNCTIONALITY
-const searchControl = function (text) {
-  let searchResult = data.articles.filter((el) =>
-    el.name.toLowerCase().includes(text.toLowerCase())
-  );
-  if (searchResult.length == 0) return;
-  mainView.render(searchResult);
-};
 ///////////////////PAGE RELOAD
 const reloadPage = function () {
   location.reload();
@@ -165,7 +158,20 @@ const controlCityRequest = async function (cityName) {
     checkView.errorMessage();
   }
 };
-////filter
+/////////////////////SEARCH FUNCTIONALITY
+let searchResult = [];
+const searchControl = function (text) {
+  searchResult = data.articles.filter((el) =>
+    el.name.toLowerCase().includes(text.toLowerCase())
+  );
+  console.log(searchResult);
+  // if (searchResult.length == 0) return;
+  mainView.render(searchResult);
+  filteredData = [];
+  filters = [];
+  checkFilter();
+};
+//////////////////////FILTER FUNCTIONALITY
 let filteredData = [];
 let filters = [];
 const showFilter = function () {
@@ -178,10 +184,44 @@ const controlFilter = function (colorFilter, typeFilter, sizeFilter) {
   mainView.render(filteredData);
   filters = colorFilter.concat(typeFilter.concat(sizeFilter));
   checkFilter();
+  searchResult = [];
 };
 const checkFilter = function () {
   let filtersQty = filters.length;
   mainView.filterPreview(filtersQty);
+};
+///////////////////SORTBY FUNCTIONALITY
+const showSortBy = function () {
+  helperBoxView.showBox();
+  sortByView.render("");
+};
+const controlSortBy = function (comand) {
+  let dataToSort;
+  if (searchResult.length > 0) {
+    dataToSort = searchResult;
+  } else if (filteredData.length > 0) {
+    dataToSort = filteredData;
+  } else {
+    dataToSort = data.articles.concat();
+  }
+  if (comand == "price-acs")
+    dataToSort.sort(function (a, b) {
+      return a.price - b.price;
+    });
+  if (comand == "price-des")
+    dataToSort.sort(function (a, b) {
+      return b.price - a.price;
+    });
+  if (comand == "capacity-acs")
+    dataToSort.sort(function (a, b) {
+      return a.capacity - b.capacity;
+    });
+  if (comand == "capacity-des")
+    dataToSort.sort(function (a, b) {
+      return b.capacity - a.capacity;
+    });
+
+  mainView.render(dataToSort);
 };
 ///////FUNCTIONS CALL
 showShop();
@@ -199,3 +239,5 @@ cartView.quantityBtns(adjustCard);
 cartView.goToArticle(formCartToArticle);
 filterView.filterCall(showFilter);
 filterView.applyBtn(controlFilter);
+sortByView.sortByCall(showSortBy);
+sortByView.sortByBtns(controlSortBy);
