@@ -5,7 +5,10 @@ class MainView extends View {
 
   clickArticle(control) {
     this.parentElement.addEventListener("click", function (el) {
+      console.log(el.target.closest(".shop__div"));
       if (!el.target.closest(".shop__article")) return;
+      // el.target.closest(".shop__div").id = 2;
+      // console.log(el.target.closest(".shop__div"));
       control(el.target.closest(".shop__article").dataset.id);
     });
   }
@@ -87,11 +90,11 @@ class MainView extends View {
   }
 
   generateArticle(article) {
-    return `
+    return `<div class="shop__div" id="${article.id}">
           <div class="shop__article" data-id="${article.id}">
-          <svg class="shop__article__icon shop__article__icon-hidden">
-            <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
-          </svg>
+            <svg class="shop__article__icon shop__article__icon-hidden">
+              <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
+            </svg>
             <img
               src="${article.img[0]}"
               alt="front-view"
@@ -100,6 +103,7 @@ class MainView extends View {
             <div class="shop__article-title">${article.name}</div>
             <div class="shop__article-data">${article.dimensions}</div>
             <div class="shop__article-price">$${article.price}</div>
+          </div>
           </div>`;
   }
   generateMessage() {

@@ -23,9 +23,9 @@ class FilterView extends View {
 
       if (e.target.classList.contains("filter__btns--apply")) {
         info.forEach((el, i) => {
-          if (el.checked == true && i < 7) colorFilter.push(el.name);
-          if (el.checked == true && i >= 7 && i < 9) typeFilter.push(el.name);
-          if (el.checked == true && i >= 9) sizeFilter.push(el.name);
+          if (el.checked == true && i < 8) colorFilter.push(el.name);
+          if (el.checked == true && i >= 8 && i < 10) typeFilter.push(el.name);
+          if (el.checked == true && i >= 10) sizeFilter.push(el.name);
         });
       }
       if (e.target.classList.contains("filter__btns--clear")) {
@@ -46,6 +46,7 @@ class FilterView extends View {
       "green",
       "grey",
       "burgundy",
+      "red",
     ];
     const types = ["hard", "soft"];
     const sizes = ["small", "medium", "large"];

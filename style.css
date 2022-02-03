@@ -66,9 +66,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; }
+  .shop__div {
+    width: 48%; }
   .shop__article {
     background-color: rgba(255, 255, 255, 0.522);
-    width: 48%;
+    width: 100%;
     margin-bottom: 2rem;
     border-radius: 1rem;
     overflow: hidden;
