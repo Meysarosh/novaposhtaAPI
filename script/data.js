@@ -53,7 +53,7 @@ export const articles = [
       `img/gabol/121122036-5.jpg`,
     ],
     dimensions: "39x55x22 cm",
-    capacity: 47,
+    capacity: 42,
     weight: 2.7,
     details:
       "Gender - male, female, handles - miniature top, sliding, material - polipropilene, number of compartments - 2, Color - coral",

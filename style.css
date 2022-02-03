@@ -599,7 +599,11 @@ a.footer__text {
 input.helper {
   margin: 0.5rem; }
 
-.filter-apply {
+.filter__btns {
   align-self: flex-end;
-  font-size: 1.5rem;
-  padding: 0.5rem 0.75rem; }
+  display: flex;
+  flex-direction: column; }
+  .filter__btns--apply, .filter__btns--clear {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    padding: 0.5rem 0.75rem; }

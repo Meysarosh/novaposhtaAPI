@@ -11,95 +11,96 @@ class FilterView extends View {
   }
   applyBtn(control) {
     this.parentElement.addEventListener("click", function (e) {
-      if (!e.target.classList.contains("filter-apply")) return;
-
+      if (
+        !e.target.classList.contains("filter__btns--apply") &&
+        !e.target.classList.contains("filter__btns--clear")
+      )
+        return;
       let info = document.querySelectorAll("input.helper");
       let colorFilter = [];
       let typeFilter = [];
       let sizeFilter = [];
 
-      info.forEach((el, i) => {
-        if (el.checked == true && i < 7) colorFilter.push(el.name);
-        if (el.checked == true && i >= 7 && i < 9) typeFilter.push(el.name);
-        if (el.checked == true && i >= 9) sizeFilter.push(el.name);
-      });
-
-      console.log(colorFilter, typeFilter, sizeFilter);
+      if (e.target.classList.contains("filter__btns--apply")) {
+        info.forEach((el, i) => {
+          if (el.checked == true && i < 7) colorFilter.push(el.name);
+          if (el.checked == true && i >= 7 && i < 9) typeFilter.push(el.name);
+          if (el.checked == true && i >= 9) sizeFilter.push(el.name);
+        });
+      }
+      if (e.target.classList.contains("filter__btns--clear")) {
+        colorFilter = [];
+        typeFilter = [];
+        sizeFilter = [];
+      }
+      // console.log(colorFilter, typeFilter, sizeFilter);
       control(colorFilter, typeFilter, sizeFilter);
     });
   }
   generateView() {
+    const colors = [
+      "beige",
+      "black",
+      "blue",
+      "coral",
+      "green",
+      "grey",
+      "burgundy",
+    ];
+    const types = ["hard", "soft"];
+    const sizes = ["small", "medium", "large"];
+
     return `
     <div class="filter__color">
-    Color:
-    <div>
-      <input class="helper" type="checkbox" id="beige" name="beige" />
-      <label class="helper" for="beige">beige</label>
-    </div>
-    <div>
-      <input class="helper" type="checkbox" id="black" name="black" />
-      <label class="helper" for="black">black</label>
-    </div>
-    <div>
-      <input class="helper" type="checkbox" id="blue" name="blue" />
-      <label class="helper" for="blue">blue</label>
-    </div>
-    <div>
-      <input class="helper" type="checkbox" id="coral" name="coral" />
-      <label class="helper" for="coral">coral</label>
-    </div>
-    <div>
-      <input class="helper" type="checkbox" id="green" name="green" />
-      <label class="helper" for="green">green</label>
-    </div>
-    <div>
-      <input class="helper" type="checkbox" id="grey" name="grey" />
-      <label class="helper" for="grey">grey</label>
-    </div>
-    <div>
-      <input
-        class="helper"
-        type="checkbox"
-        id="fuchsia"
-        name="fuchsia"
-      />
-      <label class="helper" for="fuchsia">fuchsia</label>
-    </div>
+    Colours:
+    ${colors
+      .map(
+        (color) => `<div>
+    <input class="helper" type="checkbox" id="${color}" name="${color}" ${
+          this.data.find((el) => el == color) ? "checked" : ""
+        } />
+    <label class="helper" for="${color}">${color}</label>
+  </div>`
+      )
+      .join("")}
   </div>
 
   <div class="filter__type">
-    Type:
-    <div>
-      <input class="helper" type="checkbox" id="hard" name="hard" />
-      <label class="helper" for="hard">hard</label>
-    </div>
-    <div>
-      <input class="helper" type="checkbox" id="soft" name="soft" />
-      <label class="helper" for="soft">soft</label>
-    </div>
+    Types:
+${types
+  .map(
+    (type) => `<div>
+<input class="helper" type="checkbox" id="${type}" name="${type}" ${
+      this.data.find((el) => el == type) ? "checked" : ""
+    }/>
+<label class="helper" for="${type}">${type}</label>
+</div>`
+  )
+  .join("")}
   </div>
 
   <div class="filter__size">
-    Size:
-    <div>
-      <input class="helper" type="checkbox" id="small" name="small" />
-      <label class="helper" for="small">small</label>
-    </div>
-    <div>
-      <input
-        class="helper"
-        type="checkbox"
-        id="medium"
-        name="medium"
-      />
-      <label class="helper" for="medium">medium</label>
-    </div>
-    <div>
-      <input class="helper" type="checkbox" id="large" name="large" />
-      <label class="helper" for="large">large</label>
-    </div>
+    Sizes:
+    ${sizes
+      .map(
+        (size) => `<div>
+    <input class="helper" type="checkbox" id="${size}" name="${size}" ${
+          this.data.find((el) => el == size) ? "checked" : ""
+        }/>
+    <label class="helper" for="${size}">${size}</label>
+  </div>`
+      )
+      .join("")}
+    
   </div>
-  <button class="filter-apply">apply</button>`;
+  <div class="filter__btns">
+  <button class="filter__btns--apply">apply</button>
+  ${
+    this.data.length > 0
+      ? ` <button class="filter__btns--clear">clear</button>`
+      : ""
+  }
+  </div>`;
   }
 }
 export default new FilterView();

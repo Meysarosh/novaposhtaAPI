@@ -165,14 +165,17 @@ const controlCityRequest = async function (cityName) {
   }
 };
 ////filter
+let filteredData = [];
+let filters = [];
 const showFilter = function () {
   helperBoxView.showBox();
-  filterView.render("");
+  filterView.render(filters);
 };
 const controlFilter = function (colorFilter, typeFilter, sizeFilter) {
   helperBoxView.hideBox();
-  let filteredData = data.filterArticles(colorFilter, typeFilter, sizeFilter);
+  filteredData = data.filterArticles(colorFilter, typeFilter, sizeFilter);
   mainView.render(filteredData);
+  filters = colorFilter.concat(typeFilter.concat(sizeFilter));
 };
 ///////FUNCTIONS CALL
 showShop();
