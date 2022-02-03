@@ -180,6 +180,7 @@ const searchControl = function (text) {
     el.name.toLowerCase().includes(text.toLowerCase())
   );
   mainView.render(searchResult);
+  checkArticleInCart();
   filteredData = [];
   filters = [];
   checkFilter();
@@ -195,6 +196,7 @@ const controlFilter = function (colorFilter, typeFilter, sizeFilter) {
   helperBoxView.hideBox();
   filteredData = data.filterArticles(colorFilter, typeFilter, sizeFilter);
   mainView.render(filteredData);
+  checkArticleInCart();
   filters = colorFilter.concat(typeFilter.concat(sizeFilter));
   checkFilter();
   searchResult = [];
@@ -235,6 +237,7 @@ const controlSortBy = function (comand) {
     });
 
   mainView.render(dataToSort);
+  checkArticleInCart();
 };
 ///////FUNCTIONS CALL
 showShop();
