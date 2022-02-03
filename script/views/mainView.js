@@ -11,25 +11,23 @@ class MainView extends View {
   }
 
   cartPreview(quantity) {
+    const itemsincart = document.querySelector(".itemsincart");
     if (quantity == 0) {
-      document.querySelector(".itemsincart").style.visibility = "hidden";
-      document.querySelector(".itemsincart").innerHTML = "";
+      itemsincart.style.visibility = "hidden";
+      itemsincart.innerHTML = "";
     } else {
-      document.querySelector(".itemsincart").style.visibility = "visible";
-      document.querySelector(
-        ".itemsincart"
-      ).innerHTML = `<span class="itemsincart__num">${quantity}</span>`;
+      itemsincart.style.visibility = "visible";
+      itemsincart.innerHTML = `<span class="itemsincart__num">${quantity}</span>`;
     }
   }
   filterPreview(quantity) {
+    const filtersApplied = document.querySelector(".filtersApplied");
     if (quantity == 0) {
-      document.querySelector(".filtersApplied").style.visibility = "hidden";
-      document.querySelector(".filtersApplied").innerHTML = "";
+      filtersApplied.style.visibility = "hidden";
+      filtersApplied.innerHTML = "";
     } else {
-      document.querySelector(".filtersApplied").style.visibility = "visible";
-      document.querySelector(
-        ".filtersApplied"
-      ).innerHTML = `<span class="filtersApplied__num">${quantity}</span>`;
+      filtersApplied.style.visibility = "visible";
+      filtersApplied.innerHTML = `<span class="filtersApplied__num">${quantity}</span>`;
     }
   }
   logoAndTextClick(control) {
