@@ -90,6 +90,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    &__icon {
+      width: 2rem;
+      height: 2rem;
+      position: absolute;
+      transform: translateX(7rem);
+      fill: red;
+      &-hidden {
+        visibility: hidden;
+      }
+    }
 
     &-img {
       width: 100%;

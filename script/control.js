@@ -29,6 +29,18 @@ const showShop = function () {
   getLocalStorage();
   checkCart();
   checkFilter();
+  checkArticleInCart();
+};
+const checkArticleInCart = function () {
+  document.querySelectorAll(".shop__article").forEach((el) => {
+    if (data.state.cart.find((obj) => obj.id == el.dataset.id)) {
+      el.children[0].classList.remove("shop__article__icon-hidden");
+    } else {
+      el.children[0].classList.add("shop__article__icon-hidden");
+    }
+    // if (el.)
+    // (el.children[0]);
+  });
 };
 //////////////////SHOW ARTICLE ONCLICK
 let curArticle;
@@ -71,6 +83,7 @@ const clearCart = function () {
   data.state.cart = [];
   generateCart();
   checkCart();
+  checkArticleInCart();
   setLocalStorage("cart", data.state.cart);
 };
 
@@ -80,6 +93,7 @@ const adjustCard = function (id, num) {
   data.state.cart = data.state.cart.filter((obj) => obj.quantity > 0);
   generateCart();
   checkCart();
+  checkArticleInCart();
   setLocalStorage("cart", data.state.cart);
 };
 
@@ -93,6 +107,7 @@ const addToCart = function () {
     articleView.changeBtn(1);
   }
   checkCart();
+  checkArticleInCart();
   setLocalStorage("cart", data.state.cart);
 };
 const checkCart = function () {

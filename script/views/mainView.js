@@ -89,6 +89,9 @@ class MainView extends View {
   generateArticle(article) {
     return `
           <div class="shop__article" data-id="${article.id}">
+          <svg class="shop__article__icon shop__article__icon-hidden">
+            <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
+          </svg>
             <img
               src="${article.img[0]}"
               alt="front-view"

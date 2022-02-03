@@ -77,6 +77,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; }
+    .shop__article__icon {
+      width: 2rem;
+      height: 2rem;
+      position: absolute;
+      transform: translateX(7rem);
+      fill: red; }
+      .shop__article__icon-hidden {
+        visibility: hidden; }
     .shop__article-img {
       width: 100%; }
     .shop__article-title {
