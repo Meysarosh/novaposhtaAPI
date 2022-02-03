@@ -21,7 +21,17 @@ class MainView extends View {
       ).innerHTML = `<span class="itemsincart__num">${quantity}</span>`;
     }
   }
-
+  filterPreview(quantity) {
+    if (quantity == 0) {
+      document.querySelector(".filtersApplied").style.visibility = "hidden";
+      document.querySelector(".filtersApplied").innerHTML = "";
+    } else {
+      document.querySelector(".filtersApplied").style.visibility = "visible";
+      document.querySelector(
+        ".filtersApplied"
+      ).innerHTML = `<span class="filtersApplied__num">${quantity}</span>`;
+    }
+  }
   logoAndTextClick(control) {
     document.querySelector(".logo").addEventListener("click", function () {
       control();

@@ -27,6 +27,7 @@ const showShop = function () {
   mainView.render(data.articles);
   getLocalStorage();
   checkCart();
+  checkFilter();
 };
 //////////////////SHOW ARTICLE ONCLICK
 let curArticle;
@@ -176,6 +177,11 @@ const controlFilter = function (colorFilter, typeFilter, sizeFilter) {
   filteredData = data.filterArticles(colorFilter, typeFilter, sizeFilter);
   mainView.render(filteredData);
   filters = colorFilter.concat(typeFilter.concat(sizeFilter));
+  checkFilter();
+};
+const checkFilter = function () {
+  let filtersQty = filters.length;
+  mainView.filterPreview(filtersQty);
 };
 ///////FUNCTIONS CALL
 showShop();

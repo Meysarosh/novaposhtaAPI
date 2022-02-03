@@ -94,10 +94,10 @@ ${types
     
   </div>
   <div class="filter__btns">
-  <button class="filter__btns--apply">apply</button>
+  <button class="filter__btns--apply helper__box-btns">apply</button>
   ${
     this.data.length > 0
-      ? ` <button class="filter__btns--clear">clear</button>`
+      ? ` <button class="filter__btns--clear helper__box-btns">clear</button>`
       : ""
   }
   </div>`;
