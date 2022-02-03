@@ -83,7 +83,7 @@ class MainView extends View {
               class="shop__article-img"
             />
             <div class="shop__article-title">${article.name}</div>
-            <div class="shop__article-data">${article.size}</div>
+            <div class="shop__article-data">${article.dimensions}</div>
             <div class="shop__article-price">$${article.price}</div>
           </div>`;
   }

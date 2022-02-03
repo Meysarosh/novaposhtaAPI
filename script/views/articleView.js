@@ -158,7 +158,7 @@ class ArticleView extends View {
           <span class="article__order-box__btn__text">GO TO CART</span>
         </button>
       <div class="article__details">
-        <p class="article__details__text">Size: ${this.data.size}</p>
+        <p class="article__details__text">Size: ${this.data.dimensions}</p>
         <p class="article__details__text">
         ${this.data.details}
         </p>

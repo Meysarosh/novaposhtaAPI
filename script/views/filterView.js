@@ -12,7 +12,7 @@ class FilterView extends View {
   applyBtn(control) {
     this.parentElement.addEventListener("click", function (e) {
       if (!e.target.classList.contains("filter-apply")) return;
-      control();
+
       let info = document.querySelectorAll("input.helper");
       let colorFilter = [];
       let typeFilter = [];
@@ -20,11 +20,12 @@ class FilterView extends View {
 
       info.forEach((el, i) => {
         if (el.checked == true && i < 7) colorFilter.push(el.name);
-        if (el.checked == true && i >= 7 && i < 10) typeFilter.push(el.name);
-        if (el.checked == true && i >= 10) sizeFilter.push(el.name);
+        if (el.checked == true && i >= 7 && i < 9) typeFilter.push(el.name);
+        if (el.checked == true && i >= 9) sizeFilter.push(el.name);
       });
 
       console.log(colorFilter, typeFilter, sizeFilter);
+      control(colorFilter, typeFilter, sizeFilter);
     });
   }
   generateView() {

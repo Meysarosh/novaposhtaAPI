@@ -169,8 +169,10 @@ const showFilter = function () {
   helperBoxView.showBox();
   filterView.render("");
 };
-const controlFilter = function () {
+const controlFilter = function (colorFilter, typeFilter, sizeFilter) {
   helperBoxView.hideBox();
+  let filteredData = data.filterArticles(colorFilter, typeFilter, sizeFilter);
+  mainView.render(filteredData);
 };
 ///////FUNCTIONS CALL
 showShop();

@@ -1,8 +1,9 @@
 export const articles = [
   {
     id: "122122",
-    color: "azul",
+    color: "blue",
     name: "Cabin Luggage Midori",
+    size: "small",
     price: 94.9,
     img: [
       `img/gabol/122122azul.jpg`,
@@ -10,7 +11,7 @@ export const articles = [
       `img/gabol/122122azul-2.jpg`,
       `img/gabol/122122azul-3.jpg`,
     ],
-    size: "37x55x21 cm",
+    dimensions: "37x55x21 cm",
     capacity: 36,
     weight: 2.6,
     details:
@@ -21,6 +22,7 @@ export const articles = [
     id: "122022",
     color: "beige",
     name: "Cabin Luggage Kiba",
+    size: "small",
     price: 114.9,
     img: [
       `img/gabol/122022beige.jpg`,
@@ -29,7 +31,7 @@ export const articles = [
       `img/gabol/122022beige-3.jpg`,
       `img/gabol/122022beige-5.jpg`,
     ],
-    size: "39x54x20 cm",
+    dimensions: "39x54x20 cm",
     capacity: 37,
     weight: 2.5,
     details:
@@ -40,6 +42,7 @@ export const articles = [
     id: "121122",
     color: "coral",
     name: "Cabin Luggage Sakura",
+    size: "small",
     price: 74.9,
     img: [
       `img/gabol/121122coral.jpg`,
@@ -49,7 +52,7 @@ export const articles = [
       `img/gabol/121122036-4.jpg`,
       `img/gabol/121122036-5.jpg`,
     ],
-    size: "39x55x22 cm",
+    dimensions: "39x55x22 cm",
     capacity: 47,
     weight: 2.7,
     details:
@@ -60,9 +63,10 @@ export const articles = [
     id: "113419",
     color: "blue",
     name: "Pilot Case 15,6 Zambia",
+    size: "small",
     price: 100.9,
     img: [`img/gabol/113419.jpg`],
-    size: "44x41x20 cm",
+    dimensions: "44x41x20 cm",
     capacity: 29,
     weight: 2.6,
     details:
@@ -73,6 +77,7 @@ export const articles = [
     id: "119946016",
     color: "grey",
     name: "Medium Suitcase Vasili",
+    size: "medium",
     price: 80.9,
     img: [
       `img/gabol/119946016-0.jpg`,
@@ -80,7 +85,7 @@ export const articles = [
       `img/gabol/119946016-2.jpg`,
       `img/gabol/119946016-3.jpg`,
     ],
-    size: "47x67x27 cm",
+    dimensions: "47x67x27 cm",
     capacity: 75,
     weight: 3.8,
     details:
@@ -89,8 +94,9 @@ export const articles = [
   },
   {
     id: "113446",
-    color: "Burgundy",
+    color: "burgundy",
     name: "Medium Suitcase Zambia",
+    size: "medium",
     price: 114.9,
     img: [
       `img/gabol/113446026-0.jpg`,
@@ -100,7 +106,7 @@ export const articles = [
       `img/gabol/113446026-4.jpg`,
       `img/gabol/113446026-5.jpg`,
     ],
-    size: "41x69x26 cm",
+    dimensions: "41x69x26 cm",
     capacity: 60,
     weight: 3.2,
     details:
@@ -109,8 +115,9 @@ export const articles = [
   },
   {
     id: "122046",
-    color: "Black",
+    color: "black",
     name: "Medium Suitcase Kiba",
+    size: "medium",
     price: 134.9,
     img: [
       `img/gabol/122046negro-0.jpg`,
@@ -119,7 +126,7 @@ export const articles = [
       `img/gabol/122046negro-3.jpg`,
       `img/gabol/122046negro-4.jpg`,
     ],
-    size: "41x69x26 cm",
+    dimensions: "41x69x26 cm",
     capacity: 79,
     weight: 3.5,
     details:
@@ -130,6 +137,7 @@ export const articles = [
     id: "226646",
     color: "multy-color",
     name: "Medium Suitcase Cherry",
+    size: "medium",
     price: 73.6,
     img: [
       `img/gabol/226646099-0.jpg`,
@@ -139,7 +147,7 @@ export const articles = [
       `img/gabol/226646099-4.jpg`,
       `img/gabol/226646099-5.jpg`,
     ],
-    size: "44x64x25 cm",
+    dimensions: "44x64x25 cm",
     capacity: 55,
     weight: 3.4,
     details:
@@ -150,6 +158,7 @@ export const articles = [
     id: "121947",
     color: "blue",
     name: "Large Suitcase Sendai",
+    size: "large",
     price: 169.9,
     img: [
       `img/gabol/121947003-0.jpg`,
@@ -159,7 +168,7 @@ export const articles = [
       `img/gabol/121947003-4.jpg`,
       `img/gabol/121947003-5.jpg`,
     ],
-    size: "54x78x30.5 cm",
+    dimensions: "54x78x30.5 cm",
     capacity: 98,
     weight: 5.1,
     details:
@@ -168,8 +177,9 @@ export const articles = [
   },
   {
     id: "119647",
-    color: "Coral",
+    color: "coral",
     name: "Large Suitcase Orleans",
+    size: "large",
     price: 109.9,
     img: [
       `img/gabol/119647coral-0.jpg`,
@@ -179,7 +189,7 @@ export const articles = [
       `img/gabol/119647coral-4.jpg`,
       `img/gabol/119647coral-5.jpg`,
     ],
-    size: "54x77x38 cm",
+    dimensions: "54x77x38 cm",
     capacity: 115,
     weight: 4.3,
     details:
@@ -233,4 +243,40 @@ export const requestDeliveryDate = async function (cityRef) {
   const data = await response.json();
   // console.log(data.data[0].DeliveryDate.date);
   return data.data[0].DeliveryDate.date;
+};
+////////FILTER
+export const filterArticles = function (colorFilter, typeFilter, sizeFilter) {
+  let articlesFilteredByColor = [];
+  let articlesFilteredByType = [];
+  let articlesFilteredBySize = [];
+  if (colorFilter.length > 0) {
+    colorFilter.forEach((col) => {
+      articlesFilteredByColor = articlesFilteredByColor.concat(
+        articles.filter((obj) => obj.color == col)
+      );
+    });
+  } else {
+    articlesFilteredByColor = articles;
+  }
+  if (typeFilter.length > 0) {
+    typeFilter.forEach(
+      (type) =>
+        (articlesFilteredByType = articlesFilteredByType.concat(
+          articlesFilteredByColor.filter((obj) => obj.type == type)
+        ))
+    );
+  } else {
+    articlesFilteredByType = articlesFilteredByColor;
+  }
+  if (sizeFilter.length > 0) {
+    sizeFilter.forEach(
+      (size) =>
+        (articlesFilteredBySize = articlesFilteredBySize.concat(
+          articlesFilteredByType.filter((obj) => obj.size == size)
+        ))
+    );
+  } else {
+    articlesFilteredBySize = articlesFilteredByType;
+  }
+  return articlesFilteredBySize;
 };
