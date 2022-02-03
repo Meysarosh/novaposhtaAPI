@@ -79,7 +79,11 @@ class MainView extends View {
   }
 
   generateView() {
-    return this.data.map(this.generateArticle).join("");
+    if (this.data.length == 0) {
+      return this.generateMessage();
+    } else {
+      return this.data.map(this.generateArticle).join("");
+    }
   }
 
   generateArticle(article) {
@@ -94,6 +98,9 @@ class MainView extends View {
             <div class="shop__article-data">${article.dimensions}</div>
             <div class="shop__article-price">$${article.price}</div>
           </div>`;
+  }
+  generateMessage() {
+    return `<h2>Sorry, <br> there is no result that matches Your search...<br>Click on logo to reload.</h2>`;
   }
 }
 export default new MainView();

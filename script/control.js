@@ -164,8 +164,6 @@ const searchControl = function (text) {
   searchResult = data.articles.filter((el) =>
     el.name.toLowerCase().includes(text.toLowerCase())
   );
-  console.log(searchResult);
-  // if (searchResult.length == 0) return;
   mainView.render(searchResult);
   filteredData = [];
   filters = [];
