@@ -428,6 +428,34 @@ a.footer__text {
     overflow: scroll;
     transition: all 0.5s; }
 
+.color-box {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+.color-div {
+  margin: 0.5rem 0.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%; }
+  .color-div--red {
+    background-color: red; }
+  .color-div--blue {
+    background-color: blue; }
+  .color-div--black {
+    background-color: black; }
+  .color-div--beige {
+    background-color: #dfdfb3; }
+  .color-div--coral {
+    background-color: coral; }
+  .color-div--green {
+    background-color: green; }
+  .color-div--grey {
+    background-color: grey; }
+  .color-div--burgundy {
+    background-color: darkred; }
+
 .search-box {
   visibility: hidden;
   height: 0;

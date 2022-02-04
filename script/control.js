@@ -26,6 +26,7 @@ const controlClosePopup = function () {
 /////////////////SHOW ARTICLES (from data) IN SHOP
 const showShop = function () {
   mainView.render(data.articles);
+  mainView.generateColorDivs();
   getLocalStorage();
   checkCart();
   checkFilter();
@@ -180,6 +181,7 @@ const searchControl = function (text) {
     el.name.toLowerCase().includes(text.toLowerCase())
   );
   mainView.render(searchResult);
+  mainView.generateColorDivs();
   checkArticleInCart();
   filteredData = [];
   filters = [];
@@ -196,6 +198,7 @@ const controlFilter = function (colorFilter, typeFilter, sizeFilter) {
   helperBoxView.hideBox();
   filteredData = data.filterArticles(colorFilter, typeFilter, sizeFilter);
   mainView.render(filteredData);
+  mainView.generateColorDivs();
   checkArticleInCart();
   filters = colorFilter.concat(typeFilter.concat(sizeFilter));
   checkFilter();
@@ -237,6 +240,7 @@ const controlSortBy = function (comand) {
     });
 
   mainView.render(dataToSort);
+  mainView.generateColorDivs();
   checkArticleInCart();
 };
 ///////FUNCTIONS CALL

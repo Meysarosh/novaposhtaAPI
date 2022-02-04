@@ -2,13 +2,11 @@ import View from "./extendView.js";
 
 class MainView extends View {
   parentElement = document.querySelector(".shop");
+  colors;
 
   clickArticle(control) {
     this.parentElement.addEventListener("click", function (el) {
-      console.log(el.target.closest(".shop__div"));
       if (!el.target.closest(".shop__article")) return;
-      // el.target.closest(".shop__div").id = 2;
-      // console.log(el.target.closest(".shop__div"));
       control(el.target.closest(".shop__article").dataset.id);
     });
   }
@@ -85,8 +83,34 @@ class MainView extends View {
     if (this.data.length == 0) {
       return this.generateMessage();
     } else {
-      return this.data.map(this.generateArticle).join("");
+      let firstColor = [];
+      let leftColors = [];
+      this.data.forEach(function (el, i, arr) {
+        if (firstColor.find((obj) => obj.id.slice(0, 6) == el.id.slice(0, 6)))
+          return;
+        let curArr = arr.filter(
+          (obj) => obj.id.slice(0, 6) == el.id.slice(0, 6)
+        );
+        firstColor.push(curArr[0]);
+        if (curArr.length > 1) leftColors.push(curArr);
+      });
+      this.colors = leftColors;
+
+      console.log(this.colors);
+      return firstColor.map(this.generateArticle).join("");
     }
+  }
+  generateColorDivs() {
+    this.colors.forEach((arr) => {
+      let curId = arr[0].id.slice(0, 6);
+      console.log(curId);
+      document.getElementById(`${curId}box`).innerHTML = arr
+        .map(
+          (el) =>
+            `<div id="${el.id}" class="color-div color-div--${el.color}"></div>`
+        )
+        .join("");
+    });
   }
 
   generateArticle(article) {
@@ -100,6 +124,7 @@ class MainView extends View {
               alt="front-view"
               class="shop__article-img"
             />
+            <div id="${article.id.slice(0, 6)}box" class="color-box" "></div>
             <div class="shop__article-title">${article.name}</div>
             <div class="shop__article-data">${article.dimensions}</div>
             <div class="shop__article-price">$${article.price}</div>

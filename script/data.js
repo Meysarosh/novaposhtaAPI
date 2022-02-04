@@ -193,7 +193,7 @@ export const articles = [
   },
   {
     id: "113419026",
-    color: "Burgundy",
+    color: "burgundy",
     name: "Pilot Case 15,6 Zambia",
     size: "small",
     price: 100.9,

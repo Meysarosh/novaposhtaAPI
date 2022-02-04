@@ -75,3 +75,47 @@
     transition: all 0.5s;
   }
 }
+.color-box {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.color-div {
+  margin: 0.5rem 0.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  &--red {
+    background-color: red;
+  }
+  &--blue {
+    background-color: blue;
+  }
+  &--black {
+    background-color: black;
+  }
+  &--beige {
+    background-color: rgb(223, 223, 179);
+  }
+  &--coral {
+    background-color: coral;
+  }
+  &--green {
+    background-color: green;
+  }
+  &--grey {
+    background-color: grey;
+  }
+  &--burgundy {
+    background-color: darkred;
+  }
+}
+// "beige",
+//       "black",
+//       "blue",
+//       "coral",
+//       "green",
+//       "grey",
+//       "burgundy",
+//       "red",
