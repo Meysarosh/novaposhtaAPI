@@ -83,6 +83,10 @@
   justify-content: center;
 }
 .color-div {
+  &-img {
+    // fantom img for preload
+    display: none;
+  }
   margin: 0.5rem 0.5rem;
   width: 2rem;
   height: 2rem;

@@ -246,7 +246,6 @@ const controlSortBy = function (comand) {
 ////////////////change article by color
 const changeArticle = function (prevId, nextId) {
   let newArticle = data.articles.find((obj) => obj.id == nextId);
-  console.log(document.getElementById(prevId));
   document.getElementById(prevId).innerHTML =
     mainView.replaceArticle(newArticle);
   document.getElementById(prevId).id = nextId;

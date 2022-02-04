@@ -113,7 +113,9 @@ class MainView extends View {
       document.getElementById(`${curId}box`).innerHTML = arr
         .map(
           (el) =>
-            `<div id="${el.id}" class="color-div color-div--${el.color}"></div>`
+            `<div id="${el.id}" class="color-div color-div--${el.color}">
+            <img src="${el.img[0]}" alt="fantom" class="color-div-img">
+            </div>`
         )
         .join("");
     });
