@@ -243,6 +243,16 @@ const controlSortBy = function (comand) {
   mainView.generateColorDivs();
   checkArticleInCart();
 };
+////////////////change article by color
+const changeArticle = function (prevId, nextId) {
+  let newArticle = data.articles.find((obj) => obj.id == nextId);
+  console.log(document.getElementById(prevId));
+  document.getElementById(prevId).innerHTML =
+    mainView.replaceArticle(newArticle);
+  document.getElementById(prevId).id = nextId;
+  mainView.generateColorDivs();
+  checkArticleInCart();
+};
 ///////FUNCTIONS CALL
 showShop();
 popupView.closePopup(controlClosePopup);
@@ -250,6 +260,7 @@ articleView.goToCart(fromArticleToCart);
 mainView.clickArticle(openArticle);
 mainView.logoAndTextClick(reloadPage);
 mainView.footerMenu(controlMenu);
+mainView.clickColorDiv(changeArticle);
 searchBoxView.searchBoxCall();
 searchBoxView.searchFor(searchControl);
 menuView.menuBtnClick(controlMenu);
