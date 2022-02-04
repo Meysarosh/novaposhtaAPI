@@ -53,6 +53,7 @@ const openArticle = function (id) {
   articleView.generateSlide();
 
   articleView.cartBtnListener(addToCart);
+  articleView.enlargeImg();
 
   if (data.state.cart.find((el) => el.id == curArticle.id)) {
     let index = data.state.cart.findIndex((el) => el.id == curArticle.id);

@@ -4,6 +4,13 @@ class ArticleView extends View {
   parentElement = document.querySelector(".popup__window");
   cartBtn = document.querySelector(".article__order-box__btn");
 
+  enlargeImg() {
+    this.parentElement.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("article__slider-img")) return;
+      e.target.style.transform = "translateY(-10%) scale(1.8)";
+    });
+  }
+
   cartBtnListener(control) {
     document
       .querySelector(".article__order-box__btn")
