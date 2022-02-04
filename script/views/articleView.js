@@ -7,7 +7,11 @@ class ArticleView extends View {
   enlargeImg() {
     this.parentElement.addEventListener("click", function (e) {
       if (!e.target.classList.contains("article__slider-img")) return;
-      e.target.style.transform = "translateY(-10%) scale(1.8)";
+      if (e.target.style.transform == "translateY(-10%) scale(1.8)") {
+        e.target.style.transform = "translateY(0%) scale(1)";
+      } else {
+        e.target.style.transform = "translateY(-10%) scale(1.8)";
+      }
     });
   }
 
