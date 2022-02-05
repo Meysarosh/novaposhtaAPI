@@ -61,12 +61,14 @@ class CheckView extends View {
           </div>`;
   }
   generateResponse(cityName, date) {
+    let date1 = new Date(date);
     document.querySelector(".check__response").innerHTML = `
       <p class="check__response-text">
-                Estimated delivery date of your order to ${cityName} is ${date.slice(
-      0,
-      16
-    )}
+                Estimated delivery date of your order to <u>${cityName}</u> is on <u>${
+      date1.toDateString().slice(0, 10) +
+      "</u>, at <u>" +
+      date1.toTimeString().slice(0, 5)
+    }</u>
               </p>`;
   }
   errorMessage() {
