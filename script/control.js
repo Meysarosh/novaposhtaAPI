@@ -39,8 +39,6 @@ const checkArticleInCart = function () {
     } else {
       el.children[0].classList.add("shop__article__icon-hidden");
     }
-    // if (el.)
-    // (el.children[0]);
   });
 };
 //////////////////SHOW ARTICLE ONCLICK
@@ -53,7 +51,6 @@ const openArticle = function (id) {
   articleView.generateSlide();
 
   articleView.cartBtnListener(addToCart);
-  articleView.enlargeImg();
 
   if (data.state.cart.find((el) => el.id == curArticle.id)) {
     let index = data.state.cart.findIndex((el) => el.id == curArticle.id);
@@ -257,6 +254,7 @@ const changeArticle = function (prevId, nextId) {
 showShop();
 popupView.closePopup(controlClosePopup);
 articleView.goToCart(fromArticleToCart);
+articleView.enlargeImg();
 mainView.clickArticle(openArticle);
 mainView.logoAndTextClick(reloadPage);
 mainView.footerMenu(controlMenu);

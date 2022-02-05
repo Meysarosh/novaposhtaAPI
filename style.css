@@ -161,9 +161,6 @@ a.footer__text {
     height: 50vh;
     position: relative;
     overflow: hidden; }
-    .article__slider-container {
-      height: 100%;
-      max-width: 35rem; }
     .article__slider-img {
       position: absolute;
       max-height: 47vh;

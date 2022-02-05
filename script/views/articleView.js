@@ -7,10 +7,12 @@ class ArticleView extends View {
   enlargeImg() {
     this.parentElement.addEventListener("click", function (e) {
       if (!e.target.classList.contains("article__slider-img")) return;
-      if (e.target.style.transform == "translateY(-10%) scale(1.8)") {
-        e.target.style.transform = "translateY(0%) scale(1)";
+      if (
+        e.target.style.transform == "translateX(0%) translateY(-7%) scale(1.5)"
+      ) {
+        e.target.style.transform = "translateX(0%) translateY(0%) scale(1)";
       } else {
-        e.target.style.transform = "translateY(-10%) scale(1.8)";
+        e.target.style.transform = "translateX(0%) translateY(-7%) scale(1.5)";
       }
     });
   }
@@ -58,7 +60,11 @@ class ArticleView extends View {
 
     const goToSlide = function () {
       slides.forEach(function (slide, i) {
-        slide.style.transform = `translateX(${(position + i) * 100}%)`;
+        slide.style.transform = `translateX(${(position + i) * 100}%) ${
+          position + i == 0
+            ? "translateY(0%) scale(1)"
+            : "translateY(0%) scale(1)"
+        }`;
       });
       if (document.querySelector(".article__dots__dot--active"))
         document
