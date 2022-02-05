@@ -34,7 +34,7 @@ const showShop = function () {
 };
 const checkArticleInCart = function () {
   document.querySelectorAll(".shop__article").forEach((el) => {
-    if (data.state.cart.find((obj) => obj.id == el.dataset.id)) {
+    if (data.state.cart.find((obj) => obj.id == el.id)) {
       el.children[0].classList.remove("shop__article__icon-hidden");
     } else {
       el.children[0].classList.add("shop__article__icon-hidden");

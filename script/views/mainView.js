@@ -7,15 +7,16 @@ class MainView extends View {
   clickArticle(control) {
     this.parentElement.addEventListener("click", function (el) {
       if (!el.target.closest(".shop__article")) return;
+      if (el.target.classList.contains("color-box")) return;
       if (el.target.classList.contains("color-div")) return;
-      control(el.target.closest(".shop__article").dataset.id);
+      control(el.target.closest(".shop__article").id);
     });
   }
   clickColorDiv(control) {
     this.parentElement.addEventListener("click", function (el) {
       if (!el.target.classList.contains("color-div")) return;
       let nextId = el.target.id;
-      let prevId = el.target.closest(".shop__div").id;
+      let prevId = el.target.closest(".shop__article").id;
       control(prevId, nextId);
     });
   }
@@ -122,8 +123,8 @@ class MainView extends View {
   }
 
   generateArticle(article) {
-    return `<div class="shop__div" id="${article.id}">
-          <div class="shop__article" data-id="${article.id}">
+    return `
+          <div class="shop__article" id="${article.id}">
             <svg class="shop__article__icon shop__article__icon-hidden">
               <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
             </svg>
@@ -139,11 +140,10 @@ class MainView extends View {
             <div class="shop__article-data">${article.dimensions}</div>
             <div class="shop__article-price">$${article.price}</div>
           </div>
-          </div>`;
+          `;
   }
   replaceArticle(article) {
     return `
-    <div class="shop__article" data-id="${article.id}">
             <svg class="shop__article__icon shop__article__icon-hidden">
               <use xlink:href="img/symbol.svg#icon-shopping-cart"></use>
             </svg>
@@ -158,7 +158,7 @@ class MainView extends View {
             <div class="shop__article-title">${article.name}</div>
             <div class="shop__article-data">${article.dimensions}</div>
             <div class="shop__article-price">$${article.price}</div>
-          </div>`;
+          `;
   }
   generateMessage() {
     return `<h2>Sorry, <br> there is no result that matches Your search...<br>Click on logo to reload.</h2>`;
