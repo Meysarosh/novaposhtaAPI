@@ -624,6 +624,55 @@ export const requestDeliveryDate = async function (cityRef) {
   // console.log(data.data[0].DeliveryDate.date);
   return data.data[0].DeliveryDate.date;
 };
+///////////////////////request delivery cost
+export const requestShippingCost = async function (cityRef, data) {
+  let totalWeight = 0;
+  let totalCost = 0;
+  let seatsAmount = 0;
+  let optionsSeat = [];
+  data.forEach((el) => {
+    let counter = el.quantity;
+    for (let i = 0; i < counter; i++) {
+      totalWeight += el.weight;
+      totalCost += el.price;
+      seatsAmount += 1;
+      optionsSeat.push({
+        weight: el.weight,
+        volumetricWidth: parseInt(el.dimensions.slice(0, 2)),
+        volumetricLength: parseInt(el.dimensions.slice(3, 5)),
+        volumetricHeight: parseInt(el.dimensions.slice(6, 8)),
+      });
+    }
+  });
+  // console.log(totalWeight);
+  // console.log(Math.round(totalCost));
+  // console.log(seatsAmount);
+  // console.log(optionsSeat);
+  const request = {
+    apiKey: "9e29b400367d47fac9f0dbc4598018a5",
+    modelName: "InternetDocument",
+    calledMethod: "getDocumentPrice",
+    methodProperties: {
+      CitySender: "78ebfe5f-c39f-11e3-9fa0-0050568002cf",
+      CityRecipient: cityRef,
+      Weight: totalWeight,
+      ServiceType: "WarehouseWarehouse",
+      Cost: totalCost,
+      CargoType: "Cargo",
+      SeatsAmount: seatsAmount,
+      OptionsSeat: optionsSeat,
+    },
+  };
+  const response = await fetch(`https://api.novaposhta.ua/v2.0/json/`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+  const result = await response.json();
+  console.log(result);
+};
 ////////FILTER
 export const filterArticles = function (colorFilter, typeFilter, sizeFilter) {
   let articlesFilteredByColor = [];

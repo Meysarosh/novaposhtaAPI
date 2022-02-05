@@ -10,6 +10,7 @@ import checkView from "./views/checkView.js";
 import helperBoxView from "./views/helperBoxView.js";
 import filterView from "./views/filterView.js";
 import sortByView from "./views/sortByView.js";
+import orderView from "./views/orderView.js";
 //////////////LOCAL STORAGE
 const setLocalStorage = function (name, data) {
   localStorage.setItem(name, JSON.stringify(data));
@@ -65,14 +66,17 @@ const fromArticleToCart = function () {
   }, 150);
 };
 ////////////////////CART FUNCTIONALITY
-const generateCart = function () {
+const whatIsInCart = function () {
   let itemsInCart = [];
   data.state.cart.map((el) => {
     let [item] = data.articles.filter((article) => article.id == el.id);
     item.quantity = el.quantity;
     itemsInCart.push(item);
   });
-  cartView.render(itemsInCart);
+  return itemsInCart;
+};
+const generateCart = function () {
+  cartView.render(whatIsInCart());
 };
 const openCart = function () {
   generateCart();
@@ -128,6 +132,38 @@ const formCartToArticle = function (id) {
     openArticle(id);
   }, 150);
 };
+const fromCartToOrder = function () {
+  controlClosePopup();
+
+  setTimeout(function () {
+    openOrder();
+  }, 150);
+};
+/////////////////ORDER IN PROCESS
+const generateOrder = function () {
+  orderView.render(whatIsInCart());
+};
+const openOrder = function () {
+  generateOrder();
+  popupView.popupCall();
+  orderView.enterCityName(controlShippingCostRequest);
+};
+const controlShippingCostRequest = async function (cityName) {
+  try {
+    // const cityList = await data.requestCityList();
+    // const cityRef = cityList.filter((obj) => obj.Description == cityName)[0]
+    //   .Ref;
+    // if (cityRef.length == 0) throw new Error();
+    const cost = await data.requestShippingCost(
+      "8d5a980d-391c-11dd-90d9-001a92567626",
+      whatIsInCart()
+    );
+    // checkView.generateResponse(cityName, date);
+  } catch (err) {
+    // checkView.errorMessage();
+  }
+};
+
 ///////////////////PAGE RELOAD
 const reloadPage = function () {
   location.reload();
@@ -266,6 +302,7 @@ cartView.clickCartBtn(openCart);
 cartView.clearCartBtn(clearCart);
 cartView.quantityBtns(adjustCard);
 cartView.goToArticle(formCartToArticle);
+cartView.orderBtn(fromCartToOrder);
 filterView.filterCall(showFilter);
 filterView.applyBtn(controlFilter);
 sortByView.sortByCall(showSortBy);

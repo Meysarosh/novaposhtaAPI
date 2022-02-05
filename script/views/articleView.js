@@ -114,7 +114,6 @@ class ArticleView extends View {
         if (touchstart - touchend > 60) nextImg();
         if (touchstart - touchend < -60) prevImg();
       });
-    /////////////////////
   }
   ///
   generateView() {

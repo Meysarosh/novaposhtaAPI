@@ -33,6 +33,12 @@ class CartView extends View {
       control(id, num);
     });
   }
+  orderBtn(control) {
+    this.parentElement.addEventListener("click", function (e) {
+      if (!e.target.closest(".cart__btns--order")) return;
+      control();
+    });
+  }
 
   generateView() {
     let total = 0;

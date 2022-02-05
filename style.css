@@ -361,6 +361,59 @@ a.footer__text {
         height: 2.5rem;
         fill: green; }
 
+.order {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column; }
+  .order__message {
+    text-transform: uppercase;
+    color: var(--rb);
+    padding: 1rem;
+    border-bottom: 1px solid var(--cgl3); }
+  .order__item {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    .order__item__price {
+      font-weight: 700; }
+  .order__total {
+    display: inline;
+    border-top: 1px solid var(--cgl3);
+    align-self: flex-end;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-weight: 700; }
+    .order__total__price {
+      color: red; }
+  .order__description-2 {
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-style: italic;
+    color: var(--cgd1);
+    margin-top: 1rem; }
+  .order__input--form {
+    width: 50%;
+    font-size: 2rem;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--rb);
+    transition: all 0.2s; }
+    .order__input--form:focus {
+      width: 60%;
+      border: 2px solid var(--rb);
+      background-color: var(--cgl4); }
+  .order__input--submit {
+    font-size: 2rem;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: var(--rb); }
+
 .circle__btn {
   width: 4rem;
   height: 4rem;

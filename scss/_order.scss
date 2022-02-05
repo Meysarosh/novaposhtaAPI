@@ -1,0 +1,74 @@
+.order {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  &__message {
+    text-transform: uppercase;
+    color: var(--rb);
+    padding: 1rem;
+    border-bottom: 1px solid var(--cgl3);
+  }
+  &__item {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &__info {
+      // width: 7rem;
+      // height: 7rem;
+      // cursor: pointer;
+      // text-decoration: underline;
+      // color: blue;
+    }
+    &__price {
+      font-weight: 700;
+    }
+  }
+  &__total {
+    display: inline;
+    border-top: 1px solid var(--cgl3);
+    align-self: flex-end;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-weight: 700;
+    &__price {
+      color: red;
+    }
+  }
+  &__description-2 {
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-style: italic;
+    color: var(--cgd1);
+    margin-top: 1rem;
+  }
+  &__input {
+    &--form {
+      width: 50%;
+      font-size: 2rem;
+      border-radius: 1rem;
+      padding: 0.5rem 1.5rem;
+      border: 2px solid var(--rb);
+      transition: all 0.2s;
+
+      &:focus {
+        width: 60%;
+        border: 2px solid var(--rb);
+        background-color: var(--cgl4);
+      }
+    }
+    &--submit {
+      font-size: 2rem;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 1rem;
+      border: none;
+      background-color: var(--rb);
+    }
+  }
+}
