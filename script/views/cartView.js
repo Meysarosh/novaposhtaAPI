@@ -40,10 +40,13 @@ class CartView extends View {
     <button class="popup__close">&times;</button>
       <div class="cart">
             <div class="cart__message">Items in your cart:</div>
-            ${this.data
-              .map((obj) => {
-                total += obj.price * obj.quantity;
-                return `<div class="cart__item">
+            ${
+              this.data.length == 0
+                ? '<div class="cart__message--empty">Your cart is empty. <br> Feel free to add some items to your cart.</div>'
+                : this.data
+                    .map((obj) => {
+                      total += obj.price * obj.quantity;
+                      return `<div class="cart__item">
             <img
               src="${obj.img[0]}"
               alt="item photo"
@@ -58,17 +61,22 @@ class CartView extends View {
               <button class="cart__item__quantity-btns btn--minus" data-id="${obj.id}">-</button>
             </div>
           </div>`;
-              })
-              .join("")}
+                    })
+                    .join("")
+            }
             <div class="cart__total">TOTAL: $${total.toFixed(2)}</div>
             <div class="cart__btns">
-              <button class="cart__btns--clear">
+              <button class="cart__btns--clear" ${
+                this.data.length == 0 ? "style='visibility:hidden'" : ""
+              }>
                 <svg class="cart__btns--clear__icon">
                   <use xlink:href="img/symbol.svg#icon-trash"></use>
                 </svg>
                 <span class="cart__btns--clear__text">CLEAR CART</span>
               </button>
-              <button class="cart__btns--order">
+              <button class="cart__btns--order" ${
+                this.data.length == 0 ? "style='visibility:hidden'" : ""
+              }>
                 <svg class="cart__btns--order__icon">
                   <use xlink:href="img/symbol.svg#icon-credit-card"></use>
                 </svg>

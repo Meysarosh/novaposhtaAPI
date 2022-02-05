@@ -274,6 +274,10 @@ a.footer__text {
   .cart__message {
     padding: 2rem;
     border-bottom: 1px solid var(--cgl3); }
+    .cart__message--empty {
+      padding-top: 2rem;
+      color: var(--dr);
+      text-align: center; }
   .cart__item {
     padding: 2rem 0;
     border-bottom: 1px solid var(--cgl3);

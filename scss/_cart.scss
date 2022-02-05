@@ -29,6 +29,11 @@
   &__message {
     padding: 2rem;
     border-bottom: 1px solid var(--cgl3);
+    &--empty {
+      padding-top: 2rem;
+      color: var(--dr);
+      text-align: center;
+    }
   }
   &__item {
     padding: 2rem 0;
