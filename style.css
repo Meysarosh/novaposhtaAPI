@@ -380,9 +380,10 @@ a.footer__text {
     .order__item__price {
       font-weight: 700; }
   .order__total {
-    display: inline;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     border-top: 1px solid var(--cgl3);
-    align-self: flex-end;
     margin-top: 1rem;
     padding: 1rem;
     font-weight: 700; }
@@ -653,7 +654,7 @@ a.footer__text {
     .check__response-text {
       font-size: 1.75rem;
       font-weight: 700;
-      color: green;
+      color: var(--rb);
       margin-bottom: 5rem; }
 
 .helper__btns {

@@ -579,6 +579,8 @@ export const articles = [
 ];
 export const state = {
   cart: [],
+  preorder: {},
+  order: [],
 };
 
 //////////////////////////////
@@ -624,8 +626,22 @@ export const requestDeliveryDate = async function (cityRef) {
   // console.log(data.data[0].DeliveryDate.date);
   return data.data[0].DeliveryDate.date;
 };
+/////////////////////////curency rate
+export const currencyRate = async function () {
+  const response = await fetch(
+    "https://api.fastforex.io/fetch-all?api_key=33de1d691f-977c1928b7-r6uce7",
+    {
+      method: "GET",
+      headers: { Accept: "application/json" },
+    }
+  );
+  const result = await response.json();
+  return result;
+};
+
 ///////////////////////request delivery cost
 export const requestShippingCost = async function (cityRef, data) {
+  let exchange = await currencyRate();
   let totalWeight = 0;
   let totalCost = 0;
   let seatsAmount = 0;
@@ -645,7 +661,7 @@ export const requestShippingCost = async function (cityRef, data) {
     }
   });
   // console.log(totalWeight);
-  // console.log(Math.round(totalCost));
+  // console.log(Math.round(totalCost*exchange.results.UAH));
   // console.log(seatsAmount);
   // console.log(optionsSeat);
   const request = {
@@ -657,7 +673,7 @@ export const requestShippingCost = async function (cityRef, data) {
       CityRecipient: cityRef,
       Weight: totalWeight,
       ServiceType: "WarehouseWarehouse",
-      Cost: totalCost,
+      Cost: Math.round(totalCost * exchange.results.UAH),
       CargoType: "Cargo",
       SeatsAmount: seatsAmount,
       OptionsSeat: optionsSeat,
@@ -671,7 +687,11 @@ export const requestShippingCost = async function (cityRef, data) {
     body: JSON.stringify(request),
   });
   const result = await response.json();
-  console.log(result);
+  state.preorder.items = data;
+  state.preorder.shipping = (
+    result.data[0].Cost / exchange.results.UAH
+  ).toFixed(2);
+  return (result.data[0].Cost / exchange.results.UAH).toFixed(2);
 };
 ////////FILTER
 export const filterArticles = function (colorFilter, typeFilter, sizeFilter) {

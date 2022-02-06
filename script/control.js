@@ -148,20 +148,33 @@ const openOrder = function () {
   popupView.popupCall();
   orderView.enterCityName(controlShippingCostRequest);
 };
+
 const controlShippingCostRequest = async function (cityName) {
   try {
-    // const cityList = await data.requestCityList();
-    // const cityRef = cityList.filter((obj) => obj.Description == cityName)[0]
-    //   .Ref;
-    // if (cityRef.length == 0) throw new Error();
-    const cost = await data.requestShippingCost(
-      "8d5a980d-391c-11dd-90d9-001a92567626",
-      whatIsInCart()
-    );
-    // checkView.generateResponse(cityName, date);
+    data.state.preorder.city = cityName;
+    const cityList = await data.requestCityList();
+    const cityRef = cityList.filter((obj) => obj.Description == cityName)[0]
+      .Ref;
+    if (cityRef.length == 0) throw new Error();
+    const date = await data.requestDeliveryDate(cityRef);
+    data.state.preorder.date = date;
+    const cost = await data.requestShippingCost(cityRef, whatIsInCart());
+    orderView.orderStep2(cityName, date, cost);
+    orderView.enterContactData(finishOrder);
   } catch (err) {
-    // checkView.errorMessage();
+    orderView.errorMessage();
   }
+};
+const finishOrder = function (name, phone) {
+  data.state.preorder.name = name;
+  data.state.preorder.phone = phone;
+  data.state.order.push(data.state.preorder);
+  setLocalStorage("order", data.state.order);
+  data.state.cart = [];
+  checkCart();
+  checkArticleInCart();
+  setLocalStorage("cart", data.state.cart);
+  console.log(data.state.order);
 };
 
 ///////////////////PAGE RELOAD
