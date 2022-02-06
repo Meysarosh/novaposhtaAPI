@@ -688,10 +688,9 @@ export const requestShippingCost = async function (cityRef, data) {
   });
   const result = await response.json();
   state.preorder.items = data;
-  state.preorder.shipping = (
-    result.data[0].Cost / exchange.results.UAH
-  ).toFixed(2);
-  return (result.data[0].Cost / exchange.results.UAH).toFixed(2);
+  state.preorder.shipping = result.data[0].Cost / exchange.results.UAH;
+  console.log(result.data[0].Cost / exchange.results.UAH);
+  return result.data[0].Cost / exchange.results.UAH;
 };
 ////////FILTER
 export const filterArticles = function (colorFilter, typeFilter, sizeFilter) {

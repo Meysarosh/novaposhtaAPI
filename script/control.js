@@ -148,6 +148,17 @@ const openOrder = function () {
   popupView.popupCall();
   orderView.enterCityName(controlShippingCostRequest);
 };
+const finishOrder = function (name, phone) {
+  data.state.preorder.name = name;
+  data.state.preorder.phone = phone;
+  data.state.order.push(data.state.preorder);
+  setLocalStorage("order", data.state.order);
+  data.state.cart = [];
+  checkCart();
+  checkArticleInCart();
+  setLocalStorage("cart", data.state.cart);
+  console.log(data.state.order);
+};
 
 const controlShippingCostRequest = async function (cityName) {
   try {
@@ -159,22 +170,14 @@ const controlShippingCostRequest = async function (cityName) {
     const date = await data.requestDeliveryDate(cityRef);
     data.state.preorder.date = date;
     const cost = await data.requestShippingCost(cityRef, whatIsInCart());
+    // const date = "2022.02.22 12:22:22";
+    // const cost = 25;
     orderView.orderStep2(cityName, date, cost);
     orderView.enterContactData(finishOrder);
   } catch (err) {
+    console.log(err);
     orderView.errorMessage();
   }
-};
-const finishOrder = function (name, phone) {
-  data.state.preorder.name = name;
-  data.state.preorder.phone = phone;
-  data.state.order.push(data.state.preorder);
-  setLocalStorage("order", data.state.order);
-  data.state.cart = [];
-  checkCart();
-  checkArticleInCart();
-  setLocalStorage("cart", data.state.cart);
-  console.log(data.state.order);
 };
 
 ///////////////////PAGE RELOAD

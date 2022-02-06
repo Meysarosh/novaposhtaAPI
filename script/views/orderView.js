@@ -45,7 +45,9 @@ class OrderView extends View {
       });
   }
   resultFromStep1(cityName, cost, itemsCost) {
-    return `<p>Shipping cost by NovaPoshta to <u>${cityName}</u>: <span class="order__total__price">$${cost}<span></p>
+    return `<p>Shipping cost by NovaPoshta to <u>${cityName}</u>: <span class="order__total__price">$${cost.toFixed(
+      2
+    )}<span></p>
     <p>Total price of your order is<span class="order__total__price">$${(
       itemsCost + cost
     ).toFixed(2)}<span></p>`;
