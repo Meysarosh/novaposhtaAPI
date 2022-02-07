@@ -47,7 +47,7 @@
     }
     &__info {
       width: 7rem;
-      height: 7rem;
+      // height: 7rem;
       cursor: pointer;
       text-decoration: underline;
       color: blue;
@@ -139,6 +139,20 @@
         width: 2.5rem;
         height: 2.5rem;
         fill: green;
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .cart {
+    &__item {
+      &__img {
+        width: 15rem;
+        height: 15rem;
+      }
+      &__info {
+        width: 10rem;
+        // height: 10rem;
       }
     }
   }

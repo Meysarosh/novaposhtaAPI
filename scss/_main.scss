@@ -23,6 +23,11 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 81.25%;
+  }
+}
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -30,7 +35,6 @@ body {
   line-height: 1.7;
 }
 .container {
-  //   background-color: var(--cgl3);
   width: 100%;
   min-height: 100vh;
 }
@@ -94,7 +98,7 @@ body {
       width: 2rem;
       height: 2rem;
       position: absolute;
-      transform: translateX(7rem);
+      transform: translate(6rem, 0.5rem);
       fill: red;
       &-hidden {
         visibility: hidden;
@@ -111,6 +115,17 @@ body {
     // }
     &-price {
       color: red;
+    }
+  }
+}
+@media screen and(min-width: 768px) {
+  .shop {
+    &__article {
+      &__icon {
+        width: 3rem;
+        height: 3rem;
+        transform: translate(11rem, 1rem);
+      }
     }
   }
 }
