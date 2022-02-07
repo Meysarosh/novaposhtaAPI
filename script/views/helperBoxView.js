@@ -1,11 +1,13 @@
 class HelperBoxView {
   parentElement = document.querySelector(".helper__box");
 
-  showBox() {
+  showBox(comand) {
     this.parentElement.style = `
     visibility: visible;
     padding: 1rem;
-    margin-bottom: 2rem;`;
+    height: ${comand == "filter" ? "30rem" : "5rem"};
+    margin-bottom: 2rem;
+    opacity: 1;`;
   }
   hideBox() {
     this.parentElement.innerHTML = "";
@@ -13,7 +15,8 @@ class HelperBoxView {
     visibility: hidden;
     padding: 0;
     margin-bottom: 0;
-    height: 0;`;
+    height: 0;
+    opacity: 0;`;
   }
 }
 export default new HelperBoxView();

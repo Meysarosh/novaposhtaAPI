@@ -218,7 +218,7 @@ const searchControl = function (text) {
 let filteredData = [];
 let filters = [];
 const showFilter = function () {
-  helperBoxView.showBox();
+  helperBoxView.showBox("filter");
   filterView.render(filters);
 };
 const controlFilter = function (colorFilter, typeFilter, sizeFilter) {

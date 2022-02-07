@@ -729,7 +729,8 @@ a.footer__text {
   justify-content: space-evenly;
   visibility: hidden;
   padding: 0;
-  transition: all 0.3s; }
+  height: 0;
+  transition: all 0.5s; }
   .helper__box-btns {
     padding: 0.5rem 0.75rem;
     font-size: 1.6rem;
