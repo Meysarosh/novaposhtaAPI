@@ -582,10 +582,28 @@ export const state = {
   preorder: {},
   order: [],
 };
-
+//////////////LOCAL STORAGE
+export const setLocalStorage = function (name, data) {
+  localStorage.setItem(name, JSON.stringify(data));
+};
+export const getLocalStorage = function () {
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  let order = JSON.parse(localStorage.getItem("order"));
+  if (cart) state.cart = cart;
+  if (order) state.order = order;
+};
 //////////////////////////////
-//Request the list of cities with all necessary data for requesting delivery cost and estimated date...
-export const requestCityList = async function () {
+export const whatIsInCart = function () {
+  let itemsInCart = [];
+  state.cart.map((el) => {
+    let [item] = articles.filter((article) => article.id == el.id);
+    item.quantity = el.quantity;
+    itemsInCart.push(item);
+  });
+  return itemsInCart;
+};
+//Request the list of cities with Ref. necessary for requesting delivery cost and estimated date...
+export const requestCityList = async function (cityName) {
   const request = {
     modelName: "Address",
     calledMethod: "getCities",
@@ -600,8 +618,9 @@ export const requestCityList = async function () {
     body: JSON.stringify(request),
   });
   const data = await response.json();
-  // console.log(data);
-  return data.data;
+  const cityList = data.data;
+  const Ref = cityList.filter((obj) => obj.Description == cityName)[0].Ref;
+  return Ref;
 };
 //request estimated delivery date
 export const requestDeliveryDate = async function (cityRef) {
@@ -623,7 +642,6 @@ export const requestDeliveryDate = async function (cityRef) {
     body: JSON.stringify(request),
   });
   const data = await response.json();
-  // console.log(data.data[0].DeliveryDate.date);
   return data.data[0].DeliveryDate.date;
 };
 /////////////////////////curency rate
@@ -640,7 +658,8 @@ export const currencyRate = async function () {
 };
 
 ///////////////////////request delivery cost
-export const requestShippingCost = async function (cityRef, data) {
+export const requestShippingCost = async function (cityRef) {
+  let data = whatIsInCart();
   let exchange = await currencyRate();
   let totalWeight = 0;
   let totalCost = 0;
@@ -660,10 +679,6 @@ export const requestShippingCost = async function (cityRef, data) {
       });
     }
   });
-  // console.log(totalWeight);
-  // console.log(Math.round(totalCost*exchange.results.UAH));
-  // console.log(seatsAmount);
-  // console.log(optionsSeat);
   const request = {
     apiKey: "9e29b400367d47fac9f0dbc4598018a5",
     modelName: "InternetDocument",
@@ -687,10 +702,10 @@ export const requestShippingCost = async function (cityRef, data) {
     body: JSON.stringify(request),
   });
   const result = await response.json();
+  const shippingCost = result.data[0].Cost / exchange.results.UAH;
   state.preorder.items = data;
-  state.preorder.shipping = result.data[0].Cost / exchange.results.UAH;
-  console.log(result.data[0].Cost / exchange.results.UAH);
-  return result.data[0].Cost / exchange.results.UAH;
+  state.preorder.shipping = shippingCost;
+  return shippingCost;
 };
 ////////FILTER
 export const filterArticles = function (colorFilter, typeFilter, sizeFilter) {

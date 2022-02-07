@@ -11,15 +11,7 @@ import helperBoxView from "./views/helperBoxView.js";
 import filterView from "./views/filterView.js";
 import sortByView from "./views/sortByView.js";
 import orderView from "./views/orderView.js";
-//////////////LOCAL STORAGE
-const setLocalStorage = function (name, data) {
-  localStorage.setItem(name, JSON.stringify(data));
-};
-const getLocalStorage = function () {
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  if (!cart) return;
-  data.state.cart = cart;
-};
+
 ////////////close popup
 const controlClosePopup = function () {
   popupView.hidePopup();
@@ -28,7 +20,7 @@ const controlClosePopup = function () {
 const showShop = function () {
   mainView.render(data.articles);
   mainView.generateColorDivs();
-  getLocalStorage();
+  data.getLocalStorage();
   checkCart();
   checkFilter();
   checkArticleInCart();
@@ -66,17 +58,9 @@ const fromArticleToCart = function () {
   }, 150);
 };
 ////////////////////CART FUNCTIONALITY
-const whatIsInCart = function () {
-  let itemsInCart = [];
-  data.state.cart.map((el) => {
-    let [item] = data.articles.filter((article) => article.id == el.id);
-    item.quantity = el.quantity;
-    itemsInCart.push(item);
-  });
-  return itemsInCart;
-};
+
 const generateCart = function () {
-  cartView.render(whatIsInCart());
+  cartView.render(data.whatIsInCart());
 };
 const openCart = function () {
   generateCart();
@@ -87,7 +71,7 @@ const clearCart = function () {
   generateCart();
   checkCart();
   checkArticleInCart();
-  setLocalStorage("cart", data.state.cart);
+  data.setLocalStorage("cart", data.state.cart);
 };
 
 const adjustCard = function (id, num) {
@@ -97,7 +81,7 @@ const adjustCard = function (id, num) {
   generateCart();
   checkCart();
   checkArticleInCart();
-  setLocalStorage("cart", data.state.cart);
+  data.setLocalStorage("cart", data.state.cart);
 };
 
 const addToCart = function () {
@@ -111,7 +95,7 @@ const addToCart = function () {
   }
   checkCart();
   checkArticleInCart();
-  setLocalStorage("cart", data.state.cart);
+  data.setLocalStorage("cart", data.state.cart);
 };
 const checkCart = function () {
   let pcsInCart;
@@ -141,7 +125,7 @@ const fromCartToOrder = function () {
 };
 /////////////////ORDER IN PROCESS
 const generateOrder = function () {
-  orderView.render(whatIsInCart());
+  orderView.render(data.whatIsInCart());
 };
 const openOrder = function () {
   generateOrder();
@@ -152,28 +136,23 @@ const finishOrder = function (name, phone) {
   data.state.preorder.name = name;
   data.state.preorder.phone = phone;
   data.state.order.push(data.state.preorder);
-  setLocalStorage("order", data.state.order);
+  data.setLocalStorage("order", data.state.order);
   data.state.cart = [];
   checkCart();
   checkArticleInCart();
-  setLocalStorage("cart", data.state.cart);
-  console.log(data.state.order);
+  data.setLocalStorage("cart", data.state.cart);
 };
 
 const controlShippingCostRequest = async function (cityName) {
   try {
-    data.state.preorder.city = cityName;
-    const cityList = await data.requestCityList();
-    const cityRef = cityList.filter((obj) => obj.Description == cityName)[0]
-      .Ref;
+    const cityRef = await data.requestCityList(cityName);
     if (cityRef.length == 0) throw new Error();
     const date = await data.requestDeliveryDate(cityRef);
-    data.state.preorder.date = date;
-    const cost = await data.requestShippingCost(cityRef, whatIsInCart());
-    // const date = "2022.02.22 12:22:22";
-    // const cost = 25;
+    const cost = await data.requestShippingCost(cityRef);
     orderView.orderStep2(cityName, date, cost);
     orderView.enterContactData(finishOrder);
+    data.state.preorder.city = cityName;
+    data.state.preorder.date = date;
   } catch (err) {
     console.log(err);
     orderView.errorMessage();
@@ -214,9 +193,7 @@ const controlMenu = function (comand) {
 ////////////Check delivery date
 const controlCityRequest = async function (cityName) {
   try {
-    const cityList = await data.requestCityList();
-    const cityRef = cityList.filter((obj) => obj.Description == cityName)[0]
-      .Ref;
+    const cityRef = await data.requestCityList(cityName);
     if (cityRef.length == 0) throw new Error();
     const date = await data.requestDeliveryDate(cityRef);
     checkView.generateResponse(cityName, date);
