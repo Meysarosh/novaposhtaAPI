@@ -287,6 +287,7 @@ articleView.enlargeImg();
 mainView.clickArticle(openArticle);
 mainView.logoAndTextClick(reloadPage);
 mainView.footerMenu(controlMenu);
+mainView.sidebarMenu(controlMenu);
 mainView.clickColorDiv(changeArticle);
 searchBoxView.searchBoxCall();
 searchBoxView.searchFor(searchControl);

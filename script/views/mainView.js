@@ -88,7 +88,15 @@ class MainView extends View {
         if (e.target.classList.contains("menu-policy")) control("policy");
       });
   }
-
+  sidebarMenu(control) {
+    document.querySelector(".main").addEventListener("click", function (e) {
+      if (!e.target.closest(".sidebar__menu__btn")) return;
+      if (e.target.closest(".menu-cart")) control("cart");
+      if (e.target.closest(".menu-check")) control("check");
+      if (e.target.closest(".menu-contacts")) control("contacts");
+      if (e.target.closest(".menu-policy")) control("policy");
+    });
+  }
   generateView() {
     if (this.data.length == 0) {
       return this.generateMessage();
