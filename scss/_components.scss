@@ -5,6 +5,14 @@
   border: none;
   background-color: transparent;
   margin-right: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    background-color: var(--cgl3);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
 }
 .back-to-top {
   &__btn {
@@ -18,9 +26,14 @@
     position: fixed;
     top: 85vh;
     left: 85vw;
-
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: white;
+    }
     &:active {
       background-color: white;
+      transform: scale(0.9);
     }
   }
   &__icon {
@@ -55,10 +68,13 @@
     transition: all 0.2s;
     cursor: pointer;
 
-    &:hover,
-    &:active {
+    &:hover {
       font-weight: 700;
       color: var(--dr);
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(0.9);
     }
   }
   &__window {
@@ -99,6 +115,7 @@
   height: 1.75rem;
   border-radius: 50%;
   box-shadow: 0.25rem 0.25rem 1rem white;
+  cursor: pointer;
   &--red {
     background-color: red;
   }
@@ -124,11 +141,3 @@
     background-color: darkred;
   }
 }
-// "beige",
-//       "black",
-//       "blue",
-//       "coral",
-//       "green",
-//       "grey",
-//       "burgundy",
-//       "red",

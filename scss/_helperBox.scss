@@ -14,9 +14,19 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      cursor: pointer;
+      color: var(--rb);
+      transition: all 0.2s;
+      &:hover {
+        color: white;
+        background-color: var(--rb);
+      }
       &:active {
         transform: translateY(0.5rem);
       }
+    }
+    &__btn:hover &__icon {
+      fill: white;
     }
     &__icon {
       width: 3rem;
@@ -27,14 +37,14 @@
       font-size: 1.6rem;
       margin-right: 1.5rem;
       font-weight: 400;
-      color: var(--rb);
+      color: inherit;
     }
   }
 }
 
 .helper__box {
   width: 100%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.508);
   font-size: 1.5rem;
   display: flex;
   justify-content: space-evenly;
@@ -51,6 +61,15 @@
     background-color: transparent;
     border-radius: 1.5rem;
     border: 1px solid var(--rb);
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      color: white;
+      background-color: var(--rb);
+    }
+    &:active {
+      transform: translateY(0.5rem);
+    }
   }
 }
 input.helper {

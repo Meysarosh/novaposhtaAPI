@@ -30,8 +30,12 @@
       width: 2.5rem;
       fill: white;
       transition: all 0.2s;
+      &:hover {
+        box-shadow: 2px 4px 6px black;
+        transform: scale(1.05);
+      }
       &:active {
-        fill: blue;
+        transform: scale(0.9);
       }
     }
   }
@@ -45,12 +49,17 @@
     background-color: transparent;
     border: none;
     padding-bottom: 2rem;
+    transition: all 0.2s;
+    &:hover {
+      text-shadow: 2px 4px 6px black;
+      transform: scale(1.05);
+    }
     &:not(:last-child) {
       border-bottom: 1px solid var(--cgl4);
     }
-    transition: all 0.2s;
+
     &:active {
-      color: blue;
+      transform: scale(0.9);
     }
   }
 }
