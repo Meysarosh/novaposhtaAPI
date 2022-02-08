@@ -8,7 +8,13 @@ class OrderView extends View {
       .querySelector(".order__input")
       .addEventListener("submit", function (e) {
         e.preventDefault();
-
+        document.querySelector(".order__response").innerHTML = `
+        <svg class="cart__btns--clear__icon">
+                    <use xlink:href="img/symbol.svg#icon-hour-glass"></use>
+                  </svg>
+        <p class="check__response-text" style="color:rgb(172, 4, 4)">
+               Please wait...
+                </p>`;
         let input = document
           .querySelector(".order__input--form")
           .value.trim()
