@@ -4,8 +4,8 @@
 
   transition: all 0.4s;
 
-  border-top: 1px solid var(--cgl4);
-  background-color: white;
+  // border-top: 1px solid var(--cgl4);
+  // background-color: rgba(255, 255, 255, 0.515);
 
   display: flex;
   align-items: center;
@@ -15,8 +15,8 @@
     font-family: Lato;
     font-size: 2rem;
     color: inherit;
-    background-color: var(--cgl2);
-    border: none;
+    background-color: white;
+    border: 1px solid var(--rb);
     padding: 0.7rem 2rem;
     border-radius: 10rem;
     width: 60%;
@@ -39,7 +39,7 @@
   }
   &__btn {
     border: none;
-    background-color: var(--cgl2);
+    background-color: white;
     &:focus {
       outline: none;
     }

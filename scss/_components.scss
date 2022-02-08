@@ -116,6 +116,10 @@
   border-radius: 50%;
   box-shadow: 0.25rem 0.25rem 1rem white;
   cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.25);
+  }
   &--red {
     background-color: red;
   }

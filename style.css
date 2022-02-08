@@ -74,6 +74,7 @@ body {
   justify-content: space-between; }
   .shop__article {
     background-color: rgba(255, 255, 255, 0.522);
+    backdrop-filter: blur(4px);
     width: 48%;
     margin-bottom: 2rem;
     border-radius: 1rem;
@@ -174,8 +175,17 @@ a.footer__text {
   border-bottom: 1px solid white; }
 
 @media screen and (min-width: 768px) {
+  .content {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.816), rgba(255, 255, 255, 0.782)), url("img/back-medium.jpg");
+    background-size: cover; }
   .footer {
     padding: 2rem 4rem; } }
+
+@media screen and (min-width: 1024px) {
+  .content {
+    background-image: linear-gradient(rgba(65, 105, 225, 0.652), rgba(65, 105, 225, 0.652)), url("img/img12.jpg");
+    background-size: cover;
+    background-blend-mode: color; } }
 
 .article {
   padding: 1rem;
@@ -649,9 +659,12 @@ a.footer__text {
   height: 1.75rem;
   border-radius: 50%;
   box-shadow: 0.25rem 0.25rem 1rem white;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: all 0.2s; }
   .color-div-img {
     display: none; }
+  .color-div:hover {
+    transform: scale(1.25); }
   .color-div--red {
     background-color: red; }
   .color-div--blue {
@@ -673,8 +686,6 @@ a.footer__text {
   visibility: hidden;
   height: 0;
   transition: all 0.4s;
-  border-top: 1px solid var(--cgl4);
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -682,8 +693,8 @@ a.footer__text {
     font-family: Lato;
     font-size: 2rem;
     color: inherit;
-    background-color: var(--cgl2);
-    border: none;
+    background-color: white;
+    border: 1px solid var(--rb);
     padding: 0.7rem 2rem;
     border-radius: 10rem;
     width: 60%;
@@ -701,7 +712,7 @@ a.footer__text {
     background-color: var(--cgl3); }
   .search-box__btn {
     border: none;
-    background-color: var(--cgl2); }
+    background-color: white; }
     .search-box__btn:focus {
       outline: none; }
     .search-box__btn:active {
@@ -873,6 +884,7 @@ a.footer__text {
 .helper__box {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.508);
+  backdrop-filter: blur(4px);
   font-size: 1.5rem;
   display: flex;
   justify-content: space-evenly;
