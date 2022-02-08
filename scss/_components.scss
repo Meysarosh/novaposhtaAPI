@@ -75,7 +75,13 @@
     transition: all 0.5s;
   }
 }
-
+@media screen and(min-width:1024px) {
+  .popup {
+    &__window {
+      width: 75vw;
+    }
+  }
+}
 .color-box {
   // background-color: white;
   padding: 1rem;

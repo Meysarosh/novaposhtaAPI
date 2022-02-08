@@ -132,13 +132,15 @@ class ArticleView extends View {
           </svg>
         </button>
         <div class="article__slider-img-container">
-        ${this.data.img.map(
-          (el, i) => `<img
+        ${this.data.img
+          .map(
+            (el, i) => `<img
         src="${this.data.img[i]}"
         alt="front-view"
         class="article__slider-img"
       />`
-        )}
+          )
+          .join("")}
         </div>
         <button
           class="article__slider-button article__slider-button--right"
@@ -169,10 +171,10 @@ class ArticleView extends View {
         </button>
       </div>
         <button class="article__btn article__btn-hidden">
-            <svg class="article__order-box__btn__icon">
+            <svg class="article__btn__icon">
               <use xlink:href="img/symbol.svg#icon-login"></use>
             </svg>
-            <span class="article__order-box__btn__text">GO TO CART</span>
+            <span class="article__btn__text">GO TO CART</span>
           </button>
       <div class="article__details">
         <p class="article__details__text">Size: ${this.data.dimensions}</p>
