@@ -63,3 +63,10 @@
     }
   }
 }
+@media screen and (min-width: 1024px) {
+  .menu {
+    background-color: var(--rb);
+    width: 50vw;
+    height: 60vh;
+  }
+}

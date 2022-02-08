@@ -15,7 +15,8 @@
     <div class="container">
       <header>
         <div class="header">
-          <img src="img/logorb.png" alt="logo" class="logo" />
+          <!-- <img src="img/logorb.png" alt="logo" class="logo" /> -->
+          <div class="logo"></div>
           <h1 class="header__text">
             Reliable luggage<br />
             for reliable travel
@@ -58,49 +59,67 @@
           <button class="menu__btn menu-policy">shop policy</button>
         </div>
       </header>
-
-      <div class="content">
-        <form class="search-box">
-          <input
-            type="text"
-            class="search-box__input"
-            placeholder="I'm looking for..."
-          />
-          <button type="submit" class="search-box__btn">
-            <svg class="search-box__icon">
-              <use xlink:href="img/symbol.svg#icon-magnifying-glass"></use>
-            </svg>
+      <div class="main">
+        <div class="sidebar">
+          <button class="sidebar__menu__btn menu-cart">
+            <span class="sidebar__menu__btn-text">cart</span>
           </button>
-        </form>
-        <div class="helper__btns">
-          <button class="helper__btns__filter__btn">
-            <div class="filtersApplied">
-              <!-- <span class="itemsincart__num">1</span> -->
-            </div>
-            <svg class="helper__btns__filter__icon">
-              <use xlink:href="img/symbol.svg#icon-sound-mix"></use>
-            </svg>
-            <span class="helper__btns__filter__title">Filter</span>
+          <button class="sidebar__menu__btn menu-check">
+            <span class="sidebar__menu__btn-text">
+              delivery date - <span style="color: red">api</span></span
+            >
           </button>
-
-          <button class="helper__btns__sortby__btn">
-            <svg class="helper__btns__sortby__icon">
-              <use xlink:href="img/symbol.svg#icon-swap"></use>
-            </svg>
-            <span class="helper__btns__sortby__title">Sort by</span>
+          <button class="sidebar__menu__btn menu-contacts">
+            <span class="sidebar__menu__btn-text">contacts</span>
+          </button>
+          <button class="sidebar__menu__btn menu-policy">
+            <span class="sidebar__menu__btn-text">shop policy</span>
           </button>
         </div>
+        <div class="content">
+          <form class="search-box">
+            <input
+              type="text"
+              class="search-box__input"
+              placeholder="I'm looking for..."
+            />
+            <button type="submit" class="search-box__btn">
+              <svg class="search-box__icon">
+                <use xlink:href="img/symbol.svg#icon-magnifying-glass"></use>
+              </svg>
+            </button>
+          </form>
+          <div class="helper__btns">
+            <button class="helper__btns__filter__btn">
+              <div class="filtersApplied">
+                <!-- <span class="itemsincart__num">1</span> -->
+              </div>
+              <svg class="helper__btns__filter__icon">
+                <use xlink:href="img/symbol.svg#icon-sound-mix"></use>
+              </svg>
+              <span class="helper__btns__filter__title">Filter</span>
+            </button>
 
-        <div class="helper__box"></div>
+            <button class="helper__btns__sortby__btn">
+              <svg class="helper__btns__sortby__icon">
+                <use xlink:href="img/symbol.svg#icon-swap"></use>
+              </svg>
+              <span class="helper__btns__sortby__title">Sort by</span>
+            </button>
+          </div>
 
-        <button class="back-to-top__btn">
-          <svg class="back-to-top__icon">
-            <use xlink:href="img/symbol.svg#icon-arrow-with-circle-up"></use>
-          </svg>
-        </button>
+          <div class="helper__box"></div>
 
-        <div class="shop"></div>
+          <button class="back-to-top__btn">
+            <svg class="back-to-top__icon">
+              <use xlink:href="img/symbol.svg#icon-arrow-with-circle-up"></use>
+            </svg>
+          </button>
+
+          <div class="shop"></div>
+        </div>
       </div>
+
       <footer class="footer">
         <div class="footer__menu">
           <button class="footer__menu-btn menu-cart">Cart</button>

@@ -23,11 +23,7 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
-@media screen and (min-width: 768px) {
-  html {
-    font-size: 81.25%;
-  }
-}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -53,6 +49,10 @@ body {
     margin-right: auto;
     color: var(--rb);
     cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   &__icon {
     width: 2.5rem;
@@ -62,19 +62,26 @@ body {
 }
 .logo {
   height: 5rem;
+  width: 3rem;
+  background-image: url("img/logorb.png");
+  background-size: contain;
+  background-repeat: no-repeat;
   cursor: pointer;
 }
-
-.content {
-  padding: 1rem;
-  width: 100%;
-  min-height: 100vh;
+.main {
+  display: flex;
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.816),
       rgba(255, 255, 255, 0.782)
     ),
     url("img/back-small.jpg");
   background-attachment: fixed;
+}
+
+.content {
+  padding: 1rem;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .shop {
@@ -118,40 +125,6 @@ body {
     // }
     &-price {
       color: red;
-    }
-  }
-}
-@media screen and(min-width: 512px) {
-  .shop {
-    &__article {
-      &__icon {
-        width: 2.5rem;
-        height: 2.5rem;
-        transform: translate(9rem, 1rem);
-      }
-    }
-  }
-}
-@media screen and(min-width: 768px) {
-  .shop {
-    &__article {
-      &__icon {
-        width: 3rem;
-        height: 3rem;
-        transform: translate(11rem, 1rem);
-      }
-    }
-  }
-}
-@media screen and(min-width: 1024px) {
-  .shop {
-    &__article {
-      width: 32%;
-      &__icon {
-        width: 3rem;
-        height: 3rem;
-        transform: translate(10rem, 1rem);
-      }
     }
   }
 }
@@ -226,8 +199,23 @@ a.footer__text {
   text-decoration: none;
   border-bottom: 1px solid white;
 }
+
+@media screen and(min-width: 512px) {
+  .shop {
+    &__article {
+      &__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        transform: translate(9rem, 1rem);
+      }
+    }
+  }
+}
 @media screen and(min-width:768px) {
-  .content {
+  html {
+    font-size: 81.25%;
+  }
+  .main {
     background-image: linear-gradient(
         rgba(255, 255, 255, 0.816),
         rgba(255, 255, 255, 0.782)
@@ -238,15 +226,52 @@ a.footer__text {
   .footer {
     padding: 2rem 4rem;
   }
+  .shop {
+    &__article {
+      &__icon {
+        transform: translate(11rem, 1rem);
+      }
+    }
+  }
 }
+
 @media screen and(min-width:1024px) {
-  .content {
+  .header {
+    background-color: var(--rb);
+    padding: 1.5rem 5rem;
+    &__text {
+      text-shadow: 0.2rem 0.2rem 0.5rem rgba(255, 255, 255, 0.618);
+      color: white;
+      margin-left: 5rem;
+    }
+    &__icon {
+      fill: white;
+    }
+  }
+  .logo {
+    background-image: url("img/logo.png");
+  }
+
+  .main {
     background-image: linear-gradient(
-        rgba(65, 105, 225, 0.652),
-        rgba(65, 105, 225, 0.652)
+        rgba(255, 255, 255, 0.816),
+        rgba(255, 255, 255, 0.782)
       ),
       url("img/img12.jpg");
     background-size: cover;
-    background-blend-mode: color;
+  }
+  .shop {
+    margin: 0 auto;
+    width: 85%;
+    &__article {
+      width: 32%;
+      &__icon {
+        transform: translate(7rem, 1rem);
+      }
+    }
+  }
+  .footer {
+    padding: 2rem 10rem;
+    background-color: var(--rb);
   }
 }

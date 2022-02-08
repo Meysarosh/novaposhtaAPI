@@ -91,13 +91,7 @@
     transition: all 0.5s;
   }
 }
-@media screen and(min-width:1024px) {
-  .popup {
-    &__window {
-      width: 75vw;
-    }
-  }
-}
+
 .color-box {
   // background-color: white;
   padding: 1rem;
@@ -143,5 +137,17 @@
   }
   &--burgundy {
     background-color: darkred;
+  }
+}
+@media screen and(min-width:1024px) {
+  .circle__btn {
+    &:hover {
+      background-color: rgb(121, 154, 255);
+    }
+  }
+  .popup {
+    &__window {
+      width: 75vw;
+    }
   }
 }
