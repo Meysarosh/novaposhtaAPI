@@ -668,16 +668,18 @@ export const requestDeliveryDate = async function (cityRef) {
 /////////////////////////curency rate
 export const currencyRate = async function () {
   const response = await fetch(
-    "https://api.fastforex.io/fetch-all?api_key=33de1d691f-977c1928b7-r6uce7",
+    "http://api.exchangeratesapi.io/v1/latest?access_key=ac1a8df00abee5c266042691eee66c7a",
     {
       method: "GET",
       headers: { Accept: "application/json" },
     }
   );
   const result = await response.json();
-  return result;
-};
 
+  const usduah = result.rates.UAH / result.rates.USD;
+
+  return usduah;
+};
 ///////////////////////request delivery cost
 export const requestShippingCost = async function (cityRef) {
   let data = whatIsInCart();
@@ -709,7 +711,7 @@ export const requestShippingCost = async function (cityRef) {
       CityRecipient: cityRef,
       Weight: totalWeight,
       ServiceType: "WarehouseWarehouse",
-      Cost: Math.round(totalCost * exchange.results.UAH),
+      Cost: Math.round(totalCost * exchange),
       CargoType: "Cargo",
       SeatsAmount: seatsAmount,
       OptionsSeat: optionsSeat,
@@ -723,7 +725,7 @@ export const requestShippingCost = async function (cityRef) {
     body: JSON.stringify(request),
   });
   const result = await response.json();
-  const shippingCost = result.data[0].Cost / exchange.results.UAH;
+  const shippingCost = result.data[0].Cost / exchange;
   state.preorder.items = data;
   state.preorder.shipping = shippingCost;
   return shippingCost;
