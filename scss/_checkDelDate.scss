@@ -24,7 +24,7 @@
   }
   &__input {
     &--form {
-      width: 50%;
+      width: 60%;
       font-size: 2rem;
       border-radius: 1rem;
       padding: 0.5rem 1.5rem;
@@ -32,7 +32,6 @@
       transition: all 0.2s;
 
       &:focus {
-        width: 60%;
         border: 2px solid var(--rb);
         background-color: rgba(74, 120, 255, 0.72);
       }
