@@ -667,17 +667,17 @@ export const requestDeliveryDate = async function (cityRef) {
 };
 /////////////////////////curency rate
 export const currencyRate = async function () {
-  const response = await fetch(
-    "http://api.exchangeratesapi.io/v1/latest?access_key=ac1a8df00abee5c266042691eee66c7a",
-    {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    }
-  );
-  const result = await response.json();
+  // const response = await fetch(
+  //   "http://api.exchangeratesapi.io/v1/latest?access_key=ac1a8df00abee5c266042691eee66c7a",
+  //   {
+  //     method: "GET",
+  //     headers: { Accept: "application/json" },
+  //   }
+  // );
+  // const result = await response.json();
 
-  const usduah = result.rates.UAH / result.rates.USD;
-
+  // const usduah = result.rates.UAH / result.rates.USD;
+  const usduah = 30;
   return usduah;
 };
 ///////////////////////request delivery cost
